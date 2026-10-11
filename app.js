@@ -6,6 +6,7 @@ var screens = Array.prototype.slice.call(document.querySelectorAll(".screen"));
 var progress = document.getElementById("progress");
 var cta = document.getElementById("cta");
 var back = document.getElementById("back");
+var home = document.getElementById("home");
 var tg = (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData !== undefined && window.Telegram.WebApp.platform !== "unknown") ? window.Telegram.WebApp : null;
 var current = 0, goal = "";
 
@@ -26,6 +27,7 @@ function render(){
   var text = screens[current].dataset.cta;
   cta.textContent = text;
   back.hidden = current===0 || !!tg;
+  home.hidden = current===0;
   if(tg){
     tg.MainButton.setText(text); tg.MainButton.show();
     current>0 ? tg.BackButton.show() : tg.BackButton.hide();
@@ -49,6 +51,7 @@ function next(){
 
 cta.addEventListener("click", next);
 back.addEventListener("click", function(){ go(current-1); });
+home.addEventListener("click", function(){ go(0); });
 
 document.getElementById("goals").addEventListener("click", function(e){
   var b = e.target.closest(".opt"); if(!b) return;

@@ -62,7 +62,7 @@
       <figure class="plate"><img src="img/facades.jpg" alt="Фасады: длинная сторона 8 метров и торец 4 метра"><figcaption>Длинный фасад 8 м и торец 4 м</figcaption></figure>
     </section>
 
-    <section class="screen" data-cta="Сколько стоит" data-label="Каркас">
+    <section class="screen" data-cta="Посчитать дом" data-label="Каркас">
       <div class="eyebrow">Технология</div>
       <h2>Как он устроен</h2>
       <p>Основа — металлический каркас. Дерево крепим к нему уголками, пластинами, саморезами и болтами.</p>
@@ -76,22 +76,78 @@
       <p class="small">На схеме каркас 7 × 3 м. Чертёж для 8 × 4 готовим.</p>
     </section>
 
-    <section class="screen" data-cta="Сколько ждать" data-label="Стоимость">
-      <div class="eyebrow">Смета</div>
-      <h2>Сколько стоит</h2>
-      <div class="big">Rp —<small>Сумму собираем по чекам. Каждая покупка попадёт в этот список.</small></div>
-      <table class="ledger">
-        <tbody>
-          <tr><td>Винтовые сваи</td><td>ждёт закупки</td></tr>
-          <tr><td>Металлический каркас</td><td>ждёт закупки</td></tr>
-          <tr><td>Дерево и обшивка</td><td>ждёт закупки</td></tr>
-          <tr><td>Кровля, черепица</td><td>ждёт закупки</td></tr>
-          <tr><td>Окна и двери</td><td>ждёт закупки</td></tr>
-          <tr><td>Сантехника</td><td>ждёт закупки</td></tr>
-          <tr><td>Электрика</td><td>ждёт закупки</td></tr>
-          <tr><td>Работа</td><td>ждёт договора</td></tr>
-        </tbody>
-      </table>
+    <section class="screen calc" id="calc" data-cta="Сколько ждать" data-label="Калькулятор">
+      <div class="eyebrow">Калькулятор дома</div>
+      <h2>Сколько стоит ваш дом</h2>
+      <div class="calc-sum" aria-live="polite">
+        <div class="calc-total" id="calcTotal">Rp —</div>
+        <div class="calc-sub"><span id="calcUsd"></span> · <span id="calcWeeks"></span></div>
+      </div>
+      <p class="calc-flag">Оценка. Цифры уточняем на нашей стройке.</p>
+
+      <div class="calc-controls noswipe">
+        <div class="ctl">
+          <div class="ctl-head">Размер</div>
+          <div class="stepper"><span>Ширина</span><button type="button" data-step="w" data-dir="-1" aria-label="Уже">−</button><output id="c-w"></output><button type="button" data-step="w" data-dir="1" aria-label="Шире">+</button></div>
+          <div class="stepper"><span>Длина</span><button type="button" data-step="l" data-dir="-1" aria-label="Короче">−</button><output id="c-l"></output><button type="button" data-step="l" data-dir="1" aria-label="Длиннее">+</button></div>
+          <div class="ctl-hint" id="c-area"></div>
+        </div>
+        <div class="ctl">
+          <div class="ctl-head">Свес крыши</div>
+          <div class="seg" role="group" aria-label="Свес крыши">
+            <button type="button" data-set="overhang" data-val="0.6">0,6 м</button>
+            <button type="button" data-set="overhang" data-val="0.9">0,9 м</button>
+            <button type="button" data-set="overhang" data-val="1.2">1,2 м</button>
+          </div>
+          <div class="ctl-hint" id="c-roofArea"></div>
+        </div>
+        <div class="ctl">
+          <div class="ctl-head">Кровля</div>
+          <div class="seg" role="group" aria-label="Кровля">
+            <button type="button" data-set="roof" data-val="clay">Глина</button>
+            <button type="button" data-set="roof" data-val="ceramic">Керамика</button>
+            <button type="button" data-set="roof" data-val="metal">Металл</button>
+          </div>
+          <div class="ctl-hint" id="c-roofHint"></div>
+        </div>
+        <div class="ctl">
+          <div class="ctl-head">Отделка</div>
+          <div class="seg" role="group" aria-label="Отделка">
+            <button type="button" data-set="finish" data-val="basic">Базовая</button>
+            <button type="button" data-set="finish" data-val="mid">Средняя</button>
+          </div>
+          <div class="ctl-hint" id="c-finishHint"></div>
+        </div>
+        <div class="ctl">
+          <div class="ctl-head">Кто строит</div>
+          <div class="seg" role="group" aria-label="Кто строит">
+            <button type="button" data-set="builder" data-val="self">Сам</button>
+            <button type="button" data-set="builder" data-val="brigade">Бригада</button>
+            <button type="button" data-set="builder" data-val="turnkey">Под ключ</button>
+          </div>
+          <div class="ctl-hint" id="c-builderHint"></div>
+        </div>
+        <div class="ctl">
+          <div class="ctl-head">Дополнительно</div>
+          <div class="stepper"><span>Терраса</span><button type="button" data-step="terrace" data-dir="-1" aria-label="Меньше террасы">−</button><output id="c-terrace"></output><button type="button" data-step="terrace" data-dir="1" aria-label="Больше террасы">+</button></div>
+          <button type="button" class="switch" role="switch" data-toggle="kitchen"><span>Кухня</span><span class="knob" aria-hidden="true"></span></button>
+          <button type="button" class="switch" role="switch" data-toggle="bath"><span>Ванная с душем</span><span class="knob" aria-hidden="true"></span></button>
+        </div>
+      </div>
+
+      <div class="calc-block">
+        <h3>По этапам</h3>
+        <ul class="calc-lines" id="calcLines"></ul>
+      </div>
+      <div class="calc-block" id="calcCrew">
+        <h3>Кого нанимать</h3>
+        <p class="small" id="crewNote"></p>
+        <ul class="calc-crew" id="calcCrewList"></ul>
+      </div>
+      <div class="calc-lock">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span>Полная смета, контакты специалистов и наши ошибки — в гайде</span>
+      </div>
     </section>
 
     <section class="screen" data-cta="Ещё вариант" data-label="Сроки">
@@ -142,6 +198,8 @@
 
   <footer class="bottom"><button class="cta" id="cta" type="button">Смотреть дом</button></footer>
 </div>
+<script src="calc-data.js"></script>
+<script src="calc.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

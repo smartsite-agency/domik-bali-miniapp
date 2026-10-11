@@ -59,7 +59,7 @@ document.getElementById("goals").addEventListener("click", function(e){
   setTimeout(function(){ go(2); }, 220);
 });
 
-document.querySelector(".seg").addEventListener("click", function(e){
+document.querySelector('.seg[aria-label="Фасад"]').addEventListener("click", function(e){
   var b = e.target.closest("button"); if(!b) return;
   Array.prototype.forEach.call(this.querySelectorAll("button"),function(o){ o.setAttribute("aria-pressed", o===b ? "true" : "false"); });
   document.getElementById("altImg").src = IMG[b.dataset.src];
@@ -68,7 +68,7 @@ document.querySelector(".seg").addEventListener("click", function(e){
 
 // Свайп между экранами
 var sx=null, sy=null;
-document.getElementById("stage").addEventListener("touchstart",function(e){ sx=e.touches[0].clientX; sy=e.touches[0].clientY; },{passive:true});
+document.getElementById("stage").addEventListener("touchstart",function(e){ if(e.target.closest(".noswipe")){ sx=null; return; } sx=e.touches[0].clientX; sy=e.touches[0].clientY; },{passive:true});
 document.getElementById("stage").addEventListener("touchend",function(e){
   if(sx===null) return;
   var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy; sx=null;

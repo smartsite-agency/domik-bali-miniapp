@@ -83,9 +83,6 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 
 .big{font-family:var(--display);font-size:40px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
 .big small{font-family:var(--body);font-size:14px;color:var(--muted);font-weight:400;display:block;margin-top:8px}
-.ledger{width:100%;border-collapse:collapse;font-size:15px}
-.ledger td{padding:10px 0;border-bottom:1px solid var(--line)}
-.ledger td:last-child{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 
 .steps{list-style:none;margin:0;padding:0;counter-reset:s}
 .steps li{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:9px 0;position:relative}
@@ -101,12 +98,48 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 .chapters{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
 .note{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
 
+/* Calculator: sticky total on top, controls, breakdown */
+.calc h3{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.2;margin:0 0 6px}
+.calc-sum{position:sticky;top:-4px;z-index:2;margin:0 -16px;padding:10px 16px 12px;background:var(--glass-solid);
+  border-bottom:1px solid var(--glass-line);box-shadow:var(--glass-shadow)}
+.calc-total{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.15;font-variant-numeric:tabular-nums}
+.calc-sub{font-size:14px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+.calc-flag{background:var(--surface);border-left:3px solid var(--tile);border-radius:0 10px 10px 0;padding:10px 12px;font-size:14px;font-weight:600}
+.calc-controls{display:flex;flex-direction:column;gap:20px}
+.ctl{display:flex;flex-direction:column;gap:8px}
+.ctl-head{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--teak);font-weight:600}
+.ctl-hint{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.stepper{display:flex;align-items:center;gap:8px}
+.stepper>span{flex:1}
+.stepper button{flex:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);
+  font:600 20px/1 var(--body);cursor:pointer;touch-action:manipulation}
+.stepper button:disabled{opacity:.4;cursor:default}
+.stepper output{min-width:64px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.switch{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;min-height:44px;padding:0;border:0;background:none;
+  color:var(--fg);font:inherit;text-align:left;cursor:pointer}
+.switch .knob{flex:none;position:relative;width:46px;height:28px;border-radius:14px;background:var(--line);transition:background .2s}
+.switch .knob::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--surface);transition:transform .2s}
+.switch[aria-checked="true"] .knob{background:var(--tile)}
+.switch[aria-checked="true"] .knob::after{transform:translateX(18px);background:var(--tile-ink)}
+.stepper button:focus-visible,.switch:focus-visible{outline:2px solid var(--tile);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.switch .knob,.switch .knob::after{transition:none}}
+.calc-lines,.calc-crew{list-style:none;margin:0;padding:0}
+.calc-lines li{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.calc-lines b,.calc-crew b{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.calc-lines i{grid-column:1/-1;display:block;height:3px;border-radius:2px;background:var(--line);overflow:hidden}
+.calc-lines i span{display:block;height:100%;background:var(--tile)}
+.calc-crew li{display:grid;grid-template-columns:1fr auto 92px;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.calc-crew em{font-style:normal;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc-lock{display:flex;align-items:center;gap:12px;padding:14px;border:1px dashed var(--line);border-radius:12px;background:var(--surface);
+  color:var(--muted);font-size:14px}
+.calc-lock svg{flex:none;color:var(--tile)}
+
 .bottom{padding:10px 16px calc(14px + env(safe-area-inset-bottom,0px));background:var(--glass-solid);border-top:1px solid var(--glass-line)}
 .cta{width:100%;border:0;border-radius:12px;padding:15px;background:var(--tile);color:var(--tile-ink);font:700 16px var(--display);cursor:pointer}
 .tg .bottom{display:none}
 
 /* Glass, like the clock digits in the photo; without backdrop-filter the opaque --glass-solid / --badge-solid above stay */
 @supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
-  .opt,.bottom{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
+  .opt,.bottom,.calc-sum{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
   .badge{background:var(--badge-bg);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 }

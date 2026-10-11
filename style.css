@@ -28,14 +28,19 @@ body{margin:0}
 html,body{height:100%}
 body{background:var(--bg);background-image:linear-gradient(180deg,var(--sky) 0,var(--bg) 200px,var(--bg) 65%,var(--sand) 100%);color:var(--fg);font:400 16px/1.5 var(--body);overflow:hidden}
 .app{height:100%;display:flex;flex-direction:column;max-width:560px;margin:0 auto}
-.top{padding:12px 16px 8px;display:flex;flex-direction:column;gap:10px}
+.top{padding:2px 16px 8px;display:flex;flex-direction:column;gap:0}
 .progress{display:flex;gap:4px}
-.progress span{flex:1;height:3px;border-radius:2px;background:var(--line);overflow:hidden}
-.progress span.on{background:var(--tile)}
+/* 24px tap target, 3px bar inside */
+.progress button{flex:1;display:flex;align-items:center;height:24px;padding:0;border:0;background:none;cursor:pointer;touch-action:manipulation}
+.progress button::before{content:"";flex:1;height:3px;border-radius:2px;background:var(--line)}
+.progress button.on::before{background:var(--tile)}
+.progress button:focus-visible{outline:2px solid var(--tile);outline-offset:-2px;border-radius:4px}
 .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
 .meta b{font-weight:600;color:var(--fg)}
 .back{background:none;border:0;color:var(--muted);font:inherit;padding:4px 0;cursor:pointer;white-space:nowrap}
-.meta-end{display:flex;align-items:center;gap:14px;white-space:nowrap}
+.meta{min-height:28px}
+.meta-end{display:flex;align-items:center;gap:12px;white-space:nowrap}
+@media (max-width:400px){.meta.tight .lbl{display:none}}
 .back:focus-visible,.cta:focus-visible,.opt:focus-visible,.seg button:focus-visible{outline:2px solid var(--tile);outline-offset:2px}
 
 .stage{flex:1;position:relative;overflow:hidden}
@@ -157,8 +162,32 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 .cta{width:100%;border:0;border-radius:12px;padding:15px;background:var(--tile);color:var(--tile-ink);font:700 16px var(--display);cursor:pointer}
 .tg .bottom{display:none}
 
+/* Contents: bottom sheet over a veil of the page background */
+.sheet-backdrop{position:fixed;inset:0;z-index:19;background:var(--bg);opacity:0;pointer-events:none;transition:opacity .28s ease}
+.sheet-backdrop.open{opacity:.72;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:20;max-width:560px;max-height:82%;margin:0 auto;display:flex;flex-direction:column;
+  background:var(--glass-solid);border:1px solid var(--glass-line);border-bottom:0;border-radius:18px 18px 0 0;box-shadow:var(--glass-shadow);
+  padding:8px 16px calc(12px + env(safe-area-inset-bottom,0px));transform:translateY(100%);visibility:hidden;
+  transition:transform .28s ease,visibility 0s linear .28s}
+.sheet.open{transform:none;visibility:visible;transition:transform .28s ease}
+.sheet-grip{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 10px;flex:none}
+.sheet-title{font-family:var(--display);font-weight:700;font-size:17px;margin-bottom:6px;flex:none}
+.toc{list-style:none;margin:0;padding:0;overflow-y:auto;overscroll-behavior:contain}
+.toc-item{display:flex;align-items:center;gap:12px;width:100%;padding:10px 8px;border:0;border-radius:12px;background:none;color:var(--fg);
+  font:inherit;text-align:left;cursor:pointer}
+.toc-num{flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;
+  font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.toc-text{min-width:0;display:flex;flex-direction:column}
+.toc-text b{font-weight:600}
+.toc-text small{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toc-item[aria-current="step"]{background:var(--surface);box-shadow:inset 3px 0 0 var(--tile)}
+.toc-item[aria-current="step"] .toc-num{background:var(--tile);border-color:var(--tile);color:var(--tile-ink)}
+.toc-item:focus-visible{outline:2px solid var(--tile);outline-offset:-2px}
+@media (prefers-reduced-motion:reduce){.sheet,.sheet.open,.sheet-backdrop{transition:none}}
+
 /* Glass, like the clock digits in the photo; without backdrop-filter the opaque --glass-solid / --badge-solid above stay */
 @supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
-  .opt,.bottom,.calc-sum{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
+  .opt,.bottom,.calc-sum,.sheet{background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4)}
+  .sheet-backdrop{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
   .badge{background:var(--badge-bg);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 }

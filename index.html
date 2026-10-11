@@ -12,17 +12,17 @@
 <body>
 <div class="app" id="app">
   <header class="top">
-    <div class="progress" id="progress" aria-hidden="true"></div>
+    <nav class="progress" id="progress" aria-label="Экраны"></nav>
     <div class="meta">
       <button class="back" id="back" type="button" hidden>← Назад</button>
       <span id="stepLabel"></span>
-      <span class="meta-end"><button class="back" id="home" type="button" hidden><span aria-hidden="true">↺</span> В начало</button><span><b id="stepNum">1</b> / <span id="stepTotal"></span></span></span>
+      <span class="meta-end"><button class="back" id="home" type="button" aria-label="В начало" hidden><span aria-hidden="true">↺</span><span class="lbl"> В начало</span></button><button class="back" id="tocBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="toc"><span aria-hidden="true">☰</span> Содержание</button><span><b id="stepNum">1</b> / <span id="stepTotal"></span></span></span>
     </div>
   </header>
 
   <main class="stage" id="stage">
 
-    <section class="screen" data-cta="Смотреть дом" data-label="Начало">
+    <section class="screen" data-cta="Смотреть дом" data-label="Начало" data-desc="Дом 8 × 4 м на сваях, что покажем">
       <figure><img src="img/hero.jpg" alt="Дом 8 на 4 метра с черепичной крышей на сваях среди пальм: гостиная с кухней, ванная и спальня"><span class="badge">Концепт</span></figure>
       <div class="eyebrow">Проект 8 × 4 · Бали</div>
       <h1>Строим домик на Бали. Показываем всё</h1>
@@ -34,7 +34,7 @@
       </div>
     </section>
 
-    <section class="screen" data-cta="Дальше" data-label="Ваша цель">
+    <section class="screen" data-cta="Дальше" data-label="Ваша цель" data-desc="Жить, сдавать или прицениться">
       <div class="eyebrow">Один вопрос</div>
       <h2>Зачем вам дом?</h2>
       <p class="lead">Отметьте вариант. Так мы поймём, какие главы гайда писать первыми.</p>
@@ -45,7 +45,7 @@
       </div>
     </section>
 
-    <section class="screen" id="layouts" data-cta="Как он устроен" data-label="Дом">
+    <section class="screen" id="layouts" data-cta="Как он устроен" data-label="Дом" data-desc="3 планировки, схема в масштабе">
       <div class="eyebrow">Планировка</div>
       <h2>Какой дом получится</h2>
       <div class="seg seg-tight noswipe" role="group" aria-label="Планировка">
@@ -59,7 +59,7 @@
       <figure class="plate"><img src="img/facades.jpg" alt="Фасады: длинная сторона 8 метров и торец 4 метра"><figcaption>Длинный фасад 8 м и торец 4 м</figcaption></figure>
     </section>
 
-    <section class="screen" data-cta="Посчитать дом" data-label="Каркас">
+    <section class="screen" data-cta="Посчитать дом" data-label="Каркас" data-desc="Металл + дерево: 4 правила крепежа">
       <div class="eyebrow">Технология</div>
       <h2>Как он устроен</h2>
       <p>Основа — металлический каркас. Дерево крепим к нему уголками, пластинами, саморезами и болтами.</p>
@@ -73,7 +73,7 @@
       <p class="small">На схеме каркас 7 × 3 м. Чертёж для 8 × 4 готовим.</p>
     </section>
 
-    <section class="screen calc" id="calc" data-cta="Сколько ждать" data-label="Калькулятор">
+    <section class="screen calc" id="calc" data-cta="Сколько ждать" data-label="Калькулятор" data-desc="Цена и срок под ваш размер">
       <div class="eyebrow">Калькулятор дома</div>
       <h2>Сколько стоит ваш дом</h2>
       <div class="calc-sum" aria-live="polite">
@@ -156,7 +156,7 @@
       </div>
     </section>
 
-    <section class="screen" data-cta="Посмотреть другую модель" data-label="Сроки">
+    <section class="screen" data-cta="Посмотреть другую модель" data-label="Сроки" data-desc="8 этапов от разметки до ключей">
       <div class="eyebrow">Таймлайн</div>
       <h2>Сколько ждать</h2>
       <div class="big">День 0<small>Счётчик запустим в день разметки участка.</small></div>
@@ -172,7 +172,7 @@
       </ol>
     </section>
 
-    <section class="screen" data-cta="Получить гайд" data-label="Вариант">
+    <section class="screen" data-cta="Получить гайд" data-label="Вариант" data-desc="Плоская крыша, веранда, 2 фасада">
       <div class="eyebrow">Другая модель</div>
       <h2>Плоская крыша и веранда</h2>
       <p class="lead">Тёмный фасад, терраса по всей длине. Пока концепт, строим 8 × 4.</p>
@@ -184,7 +184,7 @@
       <figure><img src="img/r3.jpg" alt="Вид на гостиную с кухней через стеклянный фасад"><span class="badge">Концепт</span><figcaption>Гостиная и кухня через стеклянный фасад</figcaption></figure>
     </section>
 
-    <section class="screen" data-cta="Следить за стройкой" data-label="Гайд">
+    <section class="screen" data-cta="Следить за стройкой" data-label="Гайд" data-desc="6 глав, первая бесплатно">
       <div class="eyebrow">Выйдет после стройки</div>
       <h2>Гайд по нашей стройке</h2>
       <p>Всё на примере этого дома: что купили, сколько заплатили, сколько ждали и где ошиблись.</p>
@@ -203,6 +203,13 @@
   </main>
 
   <footer class="bottom"><button class="cta" id="cta" type="button">Смотреть дом</button></footer>
+
+  <div class="sheet-backdrop" id="tocBackdrop"></div>
+  <div class="sheet" id="toc" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="tocTitle" aria-hidden="true">
+    <div class="sheet-grip" aria-hidden="true"></div>
+    <div class="sheet-title" id="tocTitle">Содержание</div>
+    <ol class="toc" id="tocList"></ol>
+  </div>
 </div>
 <script src="calc-data.js"></script>
 <script src="calc.js"></script>

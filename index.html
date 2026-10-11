@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Домик на Бали</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:wght@300;400;600&family=Roboto+Slab:wght@700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="top">
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <div class="meta">
+      <button class="back" id="back" type="button" hidden>← Назад</button>
+      <span id="stepLabel"></span>
+      <span><b id="stepNum">1</b> / <span id="stepTotal"></span></span>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+
+    <section class="screen" data-cta="Смотреть дом" data-label="Начало">
+      <figure><img src="img/hero.jpg" alt="Дом 8 на 4 метра с черепичной крышей на сваях среди пальм: гостиная с кухней, ванная и спальня"><span class="badge">Концепт</span></figure>
+      <div class="eyebrow">Проект 8 × 4 · Бали</div>
+      <h1>Строим домик на Бали. Показываем всё</h1>
+      <p class="lead">Свой дом на участке Оли. Каждый шаг снимаем и записываем: деньги, сроки, ошибки.</p>
+      <div class="facts">
+        <div class="fact"><strong>32 м²</strong><span>площадь</span></div>
+        <div class="fact"><strong>1</strong><span>спальня</span></div>
+        <div class="fact"><strong>~5 т</strong><span>на винтовых сваях</span></div>
+      </div>
+    </section>
+
+    <section class="screen" data-cta="Дальше" data-label="Ваша цель">
+      <div class="eyebrow">Один вопрос</div>
+      <h2>Зачем вам дом?</h2>
+      <p class="lead">Отметьте вариант. Так мы поймём, какие главы гайда писать первыми.</p>
+      <div class="opts" id="goals">
+        <button class="opt" type="button" id="goal-live" aria-pressed="false" data-goal="жить"><span>Жить самому<small>Дом для себя или семьи</small></span><span class="dot"></span></button>
+        <button class="opt" type="button" id="goal-rent" aria-pressed="false" data-goal="сдавать"><span>Сдавать в аренду<small>Дом как вложение</small></span><span class="dot"></span></button>
+        <button class="opt" type="button" id="goal-look" aria-pressed="false" data-goal="приценяюсь"><span>Пока прицениваюсь<small>Хочу понять бюджет и сроки</small></span><span class="dot"></span></button>
+      </div>
+    </section>
+
+    <section class="screen" data-cta="Как он устроен" data-label="Дом">
+      <div class="eyebrow">Планировка</div>
+      <h2>Какой дом получится</h2>
+      <figure class="plate"><img src="img/plan.jpg" alt="План дома 8 на 4 метра: гостиная с кухней слева, ванная с душем и туалетом по центру, спальня справа"></figure>
+      <dl class="specs">
+        <div><dt>Размер</dt><dd>8 × 4 м</dd></div>
+        <div><dt>Площадь</dt><dd>32 м²</dd></div>
+        <div><dt>Гостиная + кухня</dt><dd>1</dd></div>
+        <div><dt>Спальня</dt><dd>1</dd></div>
+        <div><dt>Душ и туалет</dt><dd>1</dd></div>
+        <div><dt>Фундамент</dt><dd>Винтовые сваи</dd></div>
+        <div><dt>Вес</dt><dd>4,5–5 т</dd></div>
+        <div><dt>Крыша</dt><dd>Черепица</dd></div>
+      </dl>
+      <figure class="plate"><img src="img/facades.jpg" alt="Фасады: длинная сторона 8 метров и торец 4 метра"><figcaption>Длинный фасад 8 м и торец 4 м</figcaption></figure>
+    </section>
+
+    <section class="screen" data-cta="Сколько стоит" data-label="Каркас">
+      <div class="eyebrow">Технология</div>
+      <h2>Как он устроен</h2>
+      <p>Основа — металлический каркас. Дерево крепим к нему уголками, пластинами, саморезами и болтами.</p>
+      <figure><img src="img/fasten.jpg" alt="Схема крепления деревянных стоек и обшивки к металлическому каркасу"></figure>
+      <ul class="rules">
+        <li>Дерево не касается мокрого металла</li>
+        <li>Крепёж только оцинкованный</li>
+        <li>Между деревом и металлом — гидроизоляция</li>
+        <li>Где нужно, оставляем вентиляционный зазор</li>
+      </ul>
+      <p class="small">На схеме каркас 7 × 3 м. Чертёж для 8 × 4 готовим.</p>
+    </section>
+
+    <section class="screen" data-cta="Сколько ждать" data-label="Стоимость">
+      <div class="eyebrow">Смета</div>
+      <h2>Сколько стоит</h2>
+      <div class="big">Rp —<small>Сумму собираем по чекам. Каждая покупка попадёт в этот список.</small></div>
+      <table class="ledger">
+        <tbody>
+          <tr><td>Винтовые сваи</td><td>ждёт закупки</td></tr>
+          <tr><td>Металлический каркас</td><td>ждёт закупки</td></tr>
+          <tr><td>Дерево и обшивка</td><td>ждёт закупки</td></tr>
+          <tr><td>Кровля, черепица</td><td>ждёт закупки</td></tr>
+          <tr><td>Окна и двери</td><td>ждёт закупки</td></tr>
+          <tr><td>Сантехника</td><td>ждёт закупки</td></tr>
+          <tr><td>Электрика</td><td>ждёт закупки</td></tr>
+          <tr><td>Работа</td><td>ждёт договора</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="screen" data-cta="Ещё вариант" data-label="Сроки">
+      <div class="eyebrow">Таймлайн</div>
+      <h2>Сколько ждать</h2>
+      <div class="big">День 0<small>Счётчик запустим в день разметки участка.</small></div>
+      <ol class="steps">
+        <li><span>Участок и разметка</span><em>впереди</em></li>
+        <li><span>Винтовые сваи</span><em>впереди</em></li>
+        <li><span>Металлический каркас</span><em>впереди</em></li>
+        <li><span>Стены и обшивка</span><em>впереди</em></li>
+        <li><span>Кровля</span><em>впереди</em></li>
+        <li><span>Сантехника и электрика</span><em>впереди</em></li>
+        <li><span>Отделка</span><em>впереди</em></li>
+        <li><span>Ключи</span><em>впереди</em></li>
+      </ol>
+    </section>
+
+    <section class="screen" data-cta="Получить гайд" data-label="Вариант">
+      <div class="eyebrow">Другая модель</div>
+      <h2>Плоская крыша и веранда</h2>
+      <p class="lead">Тёмный фасад, терраса по всей длине. Пока концепт, строим 8 × 4.</p>
+      <div class="seg" role="group" aria-label="Фасад">
+        <button type="button" id="facade-closed" aria-pressed="true" data-src="r1">Закрытый фасад</button>
+        <button type="button" id="facade-glass" aria-pressed="false" data-src="r2">Стеклянный фасад</button>
+      </div>
+      <figure><img id="altImg" src="img/r1.jpg" alt="Дом с плоской крышей и верандой в джунглях"><span class="badge">Концепт</span></figure>
+      <figure><img src="img/r3.jpg" alt="Вид на гостиную с кухней через стеклянный фасад"><span class="badge">Концепт</span><figcaption>Гостиная и кухня через стеклянный фасад</figcaption></figure>
+    </section>
+
+    <section class="screen" data-cta="Следить за стройкой" data-label="Гайд">
+      <div class="eyebrow">Выйдет после стройки</div>
+      <h2>Гайд по нашей стройке</h2>
+      <p>Всё на примере этого дома: что купили, сколько заплатили, сколько ждали и где ошиблись.</p>
+      <ol class="chapters">
+        <li>Участок и документы</li>
+        <li>Фундамент на винтовых сваях</li>
+        <li>Металлический каркас и дерево</li>
+        <li>Кровля, окна, инженерия</li>
+        <li>Полная смета и таймлайн</li>
+        <li>Ошибки и сколько они стоили</li>
+      </ol>
+      <div class="note">Первая глава бесплатно. <span id="goalNote"></span></div>
+      <p class="small" id="linkNote" hidden>Ссылка на канал стройки появится здесь.</p>
+    </section>
+
+  </main>
+
+  <footer class="bottom"><button class="cta" id="cta" type="button">Смотреть дом</button></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

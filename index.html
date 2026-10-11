@@ -45,20 +45,17 @@
       </div>
     </section>
 
-    <section class="screen" data-cta="Как он устроен" data-label="Дом">
+    <section class="screen" id="layouts" data-cta="Как он устроен" data-label="Дом">
       <div class="eyebrow">Планировка</div>
       <h2>Какой дом получится</h2>
-      <figure class="plate"><img src="img/plan.jpg" alt="План дома 8 на 4 метра: гостиная с кухней слева, ванная с душем и туалетом по центру, спальня справа"></figure>
-      <dl class="specs">
-        <div><dt>Размер</dt><dd>8 × 4 м</dd></div>
-        <div><dt>Площадь</dt><dd>32 м²</dd></div>
-        <div><dt>Гостиная + кухня</dt><dd>1</dd></div>
-        <div><dt>Спальня</dt><dd>1</dd></div>
-        <div><dt>Душ и туалет</dt><dd>1</dd></div>
-        <div><dt>Фундамент</dt><dd>Винтовые сваи</dd></div>
-        <div><dt>Вес</dt><dd>4,5–5 т</dd></div>
-        <div><dt>Крыша</dt><dd>Черепица</dd></div>
-      </dl>
+      <div class="seg seg-tight noswipe" role="group" aria-label="Планировка">
+        <button type="button" data-set="layout" data-val="studio">Студия</button>
+        <button type="button" data-set="layout" data-val="bedroom">Со спальней</button>
+        <button type="button" data-set="layout" data-val="loft">С антресолью</button>
+      </div>
+      <figure class="plan"><div id="planSvg"></div><figcaption>Схема</figcaption></figure>
+      <dl class="specs" id="planSpecs"></dl>
+      <p class="plan-price" id="planPrice"></p>
       <figure class="plate"><img src="img/facades.jpg" alt="Фасады: длинная сторона 8 метров и торец 4 метра"><figcaption>Длинный фасад 8 м и торец 4 м</figcaption></figure>
     </section>
 
@@ -86,6 +83,15 @@
       <p class="calc-flag">Оценка. Цифры уточняем на нашей стройке.</p>
 
       <div class="calc-controls noswipe">
+        <div class="ctl">
+          <div class="ctl-head">Планировка</div>
+          <div class="seg seg-tight noswipe" role="group" aria-label="Планировка">
+            <button type="button" data-set="layout" data-val="studio">Студия</button>
+            <button type="button" data-set="layout" data-val="bedroom">Со спальней</button>
+            <button type="button" data-set="layout" data-val="loft">С антресолью</button>
+          </div>
+          <div class="ctl-hint" id="c-layoutHint"></div>
+        </div>
         <div class="ctl">
           <div class="ctl-head">Размер</div>
           <div class="stepper"><span>Ширина</span><button type="button" data-step="w" data-dir="-1" aria-label="Уже">−</button><output id="c-w"></output><button type="button" data-step="w" data-dir="1" aria-label="Шире">+</button></div>
@@ -150,7 +156,7 @@
       </div>
     </section>
 
-    <section class="screen" data-cta="Ещё вариант" data-label="Сроки">
+    <section class="screen" data-cta="Посмотреть другую модель" data-label="Сроки">
       <div class="eyebrow">Таймлайн</div>
       <h2>Сколько ждать</h2>
       <div class="big">День 0<small>Счётчик запустим в день разметки участка.</small></div>
@@ -200,6 +206,7 @@
 </div>
 <script src="calc-data.js"></script>
 <script src="calc.js"></script>
+<script src="plan.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

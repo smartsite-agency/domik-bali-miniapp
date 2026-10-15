@@ -39,4 +39,6 @@
 
 - Перед змінами — прочитати файли й погодити план з користувачем; без дозволу нічого не змінювати.
 - Локально: відкрити `index.html` через Live Server у VS Code.
-- Публікація: GitHub Pages, посилання — в @BotFather.
+- Публікація: GitHub Pages з гілки `main` (репозиторій `smartsite-agency/domik-bali-miniapp`), посилання — в @BotFather.
+- Після кожної завершеної правки — коміт. Пушити на GitHub (`git push`) тільки коли користувач скаже «запушь».
+- Після пушу нагадати посилання https://smartsite-agency.github.io/domik-bali-miniapp/ і що оновлення з'явиться через 1–2 хвилини.

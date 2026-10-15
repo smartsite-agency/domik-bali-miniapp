@@ -21,6 +21,19 @@ function date(s){
   return p.length === 3 ? Number(p[2]) + NB + MONTHS[Number(p[1]) - 1] + NB + p[0] : esc(s);
 }
 
+// Фото: обычная картинка с ленивой загрузкой. Чертёж из drawings/ вставляем в страницу (drawings.js)
+// на светлом фоне — линии видны и в тёмной теме.
+var DWG = /^drawings\/([\w-]+)\.svg$/;
+function media(src, cls, alt){
+  var m = DWG.exec(src);
+  if(m) return '<span class="' + cls + ' dwg-host dwg-light" data-diary-dwg="' + m[1] + '" role="img" aria-label="' + esc(alt || "Чертёж") + '"></span>';
+  return '<img class="' + cls + '" src="' + esc(src) + '" alt="' + esc(alt || "") + '" loading="lazy">';
+}
+function hydrate(el){
+  if(!window.Viewer) return;
+  Array.prototype.forEach.call(el.querySelectorAll("[data-diary-dwg]"), function(x){ Viewer.put(x, x.dataset.diaryDwg); });
+}
+
 var entries = DIARY.slice().sort(function(a, b){ return b.day - a.day || String(b.date).localeCompare(String(a.date)); });
 var real = entries.filter(function(e){ return !e.example; });
 
@@ -38,7 +51,7 @@ var feed = document.getElementById("diaryFeed");
 feed.innerHTML = entries.map(function(e, i){
   var ph = e.photos && e.photos[0];
   return '<li><button type="button" class="diary-card' + (e.example ? " is-example" : "") + '" data-i="' + i + '">' +
-    (ph ? '<img class="diary-thumb" src="' + esc(ph) + '" alt="" loading="lazy">' : '<span class="diary-thumb"></span>') +
+    (ph ? media(ph, "diary-thumb", "") : '<span class="diary-thumb"></span>') +
     '<span class="diary-info">' +
       (e.example ? '<span class="diary-example">Пример записи</span>' : "") +
       '<span class="diary-meta">День' + NB + e.day + " · " + date(e.date) + '</span>' +
@@ -48,6 +61,9 @@ feed.innerHTML = entries.map(function(e, i){
     '</span></button></li>';
 }).join("");
 
+// Чертежи в ленте вставляем, когда загрузится drawings.js (он подключён после этого файла)
+window.addEventListener("DOMContentLoaded", function(){ hydrate(feed); });
+
 // Панель с подробностями
 var sheet = document.getElementById("diarySheet"), backdrop = document.getElementById("diaryBackdrop"),
     body = document.getElementById("diaryBody"), open = false, opener = null;
@@ -55,7 +71,7 @@ var sheet = document.getElementById("diarySheet"), backdrop = document.getElemen
 function detail(e){
   var photos = e.photos || [];
   var gal = photos.length ? '<div class="diary-gallery-wrap"><div class="diary-gallery" id="diaryGallery">' +
-      photos.map(function(p, k){ return '<img src="' + esc(p) + '" alt="Фото ' + (k + 1) + ' из ' + photos.length + '" loading="lazy">'; }).join("") +
+      photos.map(function(p, k){ return media(p, "diary-shot", "Фото " + (k + 1) + " из " + photos.length); }).join("") +
       '</div>' + (photos.length > 1 ? '<span class="badge diary-count" id="diaryCount">1 / ' + photos.length + '</span>' : "") + '</div>' : "";
   return (e.example ? '<span class="diary-example">Пример записи</span>' : "") +
     gal +
@@ -72,6 +88,7 @@ function show(i, from){
   opener = from || null;
   body.innerHTML = '<button type="button" class="diary-close" id="diaryClose" aria-label="Закрыть">×</button>' + detail(e);
   body.scrollTop = 0;
+  hydrate(body);
   var g = document.getElementById("diaryGallery"), cnt = document.getElementById("diaryCount");
   if(g && cnt) g.addEventListener("scroll", function(){
     cnt.textContent = (Math.round(g.scrollLeft / g.clientWidth) + 1) + " / " + g.children.length;

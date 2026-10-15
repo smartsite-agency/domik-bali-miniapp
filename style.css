@@ -192,3 +192,29 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px}
   .sheet-backdrop{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
   .badge{background:var(--badge-bg);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 }
+
+/* Чертежи 7 × 4 (drawings/, drawings.js): SVG берут цвета из токенов приложения */
+.dwg-host svg.dwg{--d-ink:var(--fg);--d-muted:var(--muted);--d-line:var(--line);--d-paper:var(--surface);--d-accent:var(--tile);--d-soft:var(--leaf)}
+.dwg-host svg,.dwg-host img{display:block;width:100%;height:auto}
+.dwg-main{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.dwg-thumbs{display:flex;gap:8px;overflow-x:auto;margin:-6px -16px 0;padding:0 16px 4px;scroll-snap-type:x proximity;scroll-padding-inline:16px;scrollbar-width:none}
+.dwg-thumbs::-webkit-scrollbar{display:none}
+.dwg-thumb{flex:none;width:104px;display:flex;flex-direction:column;gap:4px;padding:0;border:0;background:none;color:var(--fg);
+  font:400 13px var(--body);text-align:left;cursor:pointer;scroll-snap-align:start}
+.dwg-thumb .dwg-host{height:76px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.dwg-thumb .dwg-host svg,.dwg-thumb .dwg-host img{height:100%}
+.link-btn{padding:0;border:0;background:none;color:var(--tile);font:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.dwg-main:focus-visible,.dwg-thumb:focus-visible,.link-btn:focus-visible,.viewer-close:focus-visible{outline:2px solid var(--tile);outline-offset:2px}
+
+/* Полноэкранный просмотр чертежа */
+.viewer{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;background:var(--bg);
+  padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility 0s linear .2s}
+.viewer.open{opacity:calc(1 - var(--pull,0)*.6);visibility:visible;transition:opacity .2s ease}
+.viewer-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 4px 16px}
+.viewer-title{font-family:var(--display);font-weight:700;font-size:17px}
+.viewer-close{flex:none;width:44px;height:44px;border:0;border-radius:50%;background:var(--surface);color:var(--fg);font:400 28px/1 var(--body);cursor:pointer}
+.viewer-stage{flex:1;position:relative;overflow:hidden;touch-action:none;display:flex;align-items:center;justify-content:center;padding:8px}
+.viewer-canvas{width:100%;max-width:1100px;transform-origin:0 0;will-change:transform}
+.viewer-canvas svg,.viewer-canvas img{max-height:calc(100vh - 140px);border-radius:12px}
+.viewer-hint{margin:0;padding:4px 16px 12px;text-align:center;font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.viewer,.viewer.open{transition:none}}

@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="dwg" viewBox="-542.3 -465 1512.4 1215" width="907" height="729" role="img" aria-label="Металлокаркас дома 7 × 4 м в изометрии">
+<title>Металлокаркас дома 7 × 4 м в изометрии</title>
+<!--
+  Масштаб 1 м = 60 px: viewBox в сантиметрах, width = см × 0,6.
+  Уклон кровли 30°, свес 1,20 над террасой и 0,60 с остальных сторон. Низ стропил опирается на верх стен +3.30 — уточнить.
+  Конёк: низ +4.45, верх +4.66; низ свеса над террасой +2.61, остальные +2.95.
+  Толщина кровли 21 см (стропила 50×150, обрешётка, черепица) — уточнить.
+  Пол +0,60, потолок 2,60 от пола (+3,20). Рама пола 15 см на винтовых сваях — уточнить.
+  Изометрия: оси x (длина 7 м) и y (глубина 4 м) под 30° к горизонтали, масштаб по осям 1 м = 60 px.
+  Стойки по границам зон (0 / 2,80 / 4,30 / 7,00) на фасаде и задней стене, по середине торцов. Сечения профиля — уточнить.
+  Стропила с шагом ≈ 0,75 м, накосные стропила к коньку — уточнить. Связи жёсткости не показаны — уточнить по расчёту.
+  Свес 1,20 над террасой — консоль стропил; возможно, нужны стойки террасы — уточнить.
+-->
+<style>
+svg.dwg{--d-ink:#0B2A59;--d-muted:#3F597E;--d-line:#BCCBDF;--d-paper:#EFF4F6;--d-accent:#2D52A2;--d-soft:#70A9F2}
+@media (prefers-color-scheme:dark){svg.dwg{--d-ink:#DBE6EC;--d-muted:#B1C0CF;--d-line:#244A7F;--d-paper:#1A3B66;--d-accent:#70A9F2;--d-soft:#A7CBF0}}
+.dwg .bg{fill:var(--d-paper)}
+.dwg .pc{fill:var(--d-ink)}
+.dwg .ac{fill:var(--d-accent)}
+.dwg .ln,.dwg .th,.dwg .mu,.dwg .hl,.dwg .fx,.dwg .pa,.dwg .sf,.dwg .gl,.dwg .gls,.dwg .acl,.dwg .act,.dwg .dim{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.dwg .ln{fill:none;stroke:var(--d-ink);stroke-width:1.6px}
+.dwg .th{fill:none;stroke:var(--d-ink);stroke-width:.9px}
+.dwg .mu{fill:none;stroke:var(--d-muted);stroke-width:.9px}
+.dwg .hl{fill:none;stroke:var(--d-line);stroke-width:.9px}
+.dwg .fx{fill:var(--d-paper);stroke:var(--d-muted);stroke-width:1px}
+.dwg .pa{fill:var(--d-paper);stroke:var(--d-ink);stroke-width:1.1px}
+.dwg .sf{fill:var(--d-line);stroke:var(--d-ink);stroke-width:1.1px}
+.dwg .gl{fill:none;stroke:var(--d-accent);stroke-width:1.8px}
+.dwg .gls{fill:var(--d-soft);fill-opacity:.22;stroke:var(--d-accent);stroke-width:1px}
+.dwg .acl{fill:none;stroke:var(--d-accent);stroke-width:1.6px}
+.dwg .act{fill:none;stroke:var(--d-accent);stroke-width:.9px}
+.dwg .dim{fill:none;stroke:var(--d-muted);stroke-width:.8px}
+.dwg .dash{stroke-dasharray:14 9}
+.dwg .dd{stroke-dasharray:26 8 4 8}
+.dwg text{font-family:Literata,Georgia,serif;fill:var(--d-ink)}
+.dwg .ttl{font-family:"Roboto Slab",Georgia,serif;font-weight:700;font-size:34px}
+.dwg .t1{font-size:30px;font-weight:600}
+.dwg .t2{font-size:24px;fill:var(--d-muted)}
+.dwg .t3{font-size:20px;fill:var(--d-muted)}
+.dwg .dt{font-size:22px;fill:var(--d-muted);font-variant-numeric:tabular-nums}
+.dwg .halo{paint-order:stroke;stroke:var(--d-paper);stroke-width:7px;stroke-linejoin:round}
+</style>
+<rect class="bg" x="-542.3" y="-465" width="1512.4" height="1215"/>
+<line class="mu" x1="0" y1="0" x2="0" y2="-42"/>
+<line class="mu" x1="-173.2" y1="100" x2="-173.2" y2="58"/>
+<line class="mu" x1="-346.4" y1="200" x2="-346.4" y2="158"/>
+<line class="mu" x1="-450.3" y1="260" x2="-450.3" y2="218"/>
+<line class="mu" x1="151.6" y1="87.5" x2="151.6" y2="45.5"/>
+<line class="mu" x1="-21.7" y1="187.5" x2="-21.7" y2="145.5"/>
+<line class="mu" x1="-194.9" y1="287.5" x2="-194.9" y2="245.5"/>
+<line class="mu" x1="-298.8" y1="347.5" x2="-298.8" y2="305.5"/>
+<line class="mu" x1="303.1" y1="175" x2="303.1" y2="133"/>
+<line class="mu" x1="129.9" y1="275" x2="129.9" y2="233"/>
+<line class="mu" x1="-43.3" y1="375" x2="-43.3" y2="333"/>
+<line class="mu" x1="-147.2" y1="435" x2="-147.2" y2="393"/>
+<line class="mu" x1="454.7" y1="262.5" x2="454.7" y2="220.5"/>
+<line class="mu" x1="281.5" y1="362.5" x2="281.5" y2="320.5"/>
+<line class="mu" x1="108.3" y1="462.5" x2="108.3" y2="420.5"/>
+<line class="mu" x1="4.3" y1="522.5" x2="4.3" y2="480.5"/>
+<line class="mu" x1="606.2" y1="350" x2="606.2" y2="308"/>
+<line class="mu" x1="433" y1="450" x2="433" y2="408"/>
+<line class="mu" x1="259.8" y1="550" x2="259.8" y2="508"/>
+<line class="mu" x1="155.9" y1="610" x2="155.9" y2="568"/>
+<line class="ln" x1="0" y1="-50" x2="606.2" y2="300"/>
+<line class="ln" x1="-173.2" y1="50" x2="433" y2="400"/>
+<line class="ln" x1="-346.4" y1="150" x2="259.8" y2="500"/>
+<line class="ln" x1="0" y1="-50" x2="-346.4" y2="150"/>
+<line class="th" x1="-346.4" y1="150" x2="-450.3" y2="210"/>
+<line class="ln" x1="151.6" y1="37.5" x2="-194.9" y2="237.5"/>
+<line class="th" x1="-194.9" y1="237.5" x2="-298.8" y2="297.5"/>
+<line class="ln" x1="303.1" y1="125" x2="-43.3" y2="325"/>
+<line class="th" x1="-43.3" y1="325" x2="-147.2" y2="385"/>
+<line class="ln" x1="454.7" y1="212.5" x2="108.3" y2="412.5"/>
+<line class="th" x1="108.3" y1="412.5" x2="4.3" y2="472.5"/>
+<line class="ln" x1="606.2" y1="300" x2="259.8" y2="500"/>
+<line class="th" x1="259.8" y1="500" x2="155.9" y2="560"/>
+<line class="th" x1="-450.3" y1="210" x2="155.9" y2="560"/>
+<line class="ln" x1="0" y1="-60" x2="0" y2="-330"/>
+<line class="ln" x1="-346.4" y1="140" x2="-346.4" y2="-130"/>
+<line class="ln" x1="242.5" y1="80" x2="242.5" y2="-190"/>
+<line class="ln" x1="-103.9" y1="280" x2="-103.9" y2="10"/>
+<line class="ln" x1="372.4" y1="155" x2="372.4" y2="-115"/>
+<line class="ln" x1="26" y1="355" x2="26" y2="85"/>
+<line class="ln" x1="606.2" y1="290" x2="606.2" y2="20"/>
+<line class="ln" x1="259.8" y1="490" x2="259.8" y2="220"/>
+<line class="ln" x1="-173.2" y1="40" x2="-173.2" y2="-230"/>
+<line class="ln" x1="433" y1="390" x2="433" y2="120"/>
+<line class="ln" x1="0" y1="-330" x2="606.2" y2="20"/>
+<line class="ln" x1="606.2" y1="20" x2="259.8" y2="220"/>
+<line class="ln" x1="259.8" y1="220" x2="-346.4" y2="-130"/>
+<line class="ln" x1="-346.4" y1="-130" x2="0" y2="-330"/>
+<line class="th" x1="121.2" y1="-260" x2="-225.2" y2="-60"/>
+<line class="th" x1="242.5" y1="-190" x2="-103.9" y2="10"/>
+<line class="th" x1="372.4" y1="-115" x2="26" y2="85"/>
+<line class="th" x1="489.3" y1="-47.5" x2="142.9" y2="152.5"/>
+<line class="th" x1="52" y1="-30" x2="52" y2="-300"/>
+<line class="th" x1="173.2" y1="40" x2="173.2" y2="-230"/>
+<line class="th" x1="52" y1="-120" x2="173.2" y2="-50"/>
+<line class="th" x1="52" y1="-240" x2="173.2" y2="-170"/>
+<line class="th" x1="398.4" y1="170" x2="398.4" y2="-100"/>
+<line class="th" x1="493.6" y1="225" x2="493.6" y2="-45"/>
+<line class="th" x1="398.4" y1="80" x2="493.6" y2="135"/>
+<line class="th" x1="398.4" y1="-40" x2="493.6" y2="15"/>
+<line class="th" x1="-69.3" y1="300" x2="-69.3" y2="30"/>
+<line class="th" x1="-8.7" y1="335" x2="-8.7" y2="65"/>
+<line class="th" x1="-69.3" y1="150" x2="-8.7" y2="185"/>
+<line class="th" x1="-69.3" y1="110" x2="-8.7" y2="145"/>
+<line class="acl" x1="0" y1="-355" x2="710.1" y2="55"/>
+<line class="acl" x1="710.1" y1="55" x2="259.8" y2="315"/>
+<line class="acl" x1="259.8" y1="315" x2="207.8" y2="379"/>
+<line class="acl" x1="207.8" y1="379" x2="-502.3" y2="-31"/>
+<line class="acl" x1="-502.3" y1="-31" x2="-450.3" y2="-95"/>
+<line class="acl" x1="-450.3" y1="-95" x2="0" y2="-355"/>
+<line class="ln" x1="0" y1="-245" x2="259.8" y2="-95"/>
+<line class="acl" x1="0" y1="-355" x2="0" y2="-245"/>
+<line class="acl" x1="-450.3" y1="-95" x2="0" y2="-245"/>
+<line class="acl" x1="710.1" y1="55" x2="259.8" y2="-95"/>
+<line class="acl" x1="259.8" y1="315" x2="259.8" y2="-95"/>
+<line class="act" x1="225.2" y1="-225" x2="0" y2="-245"/>
+<line class="act" x1="0" y1="-245" x2="-277.1" y2="99"/>
+<line class="act" x1="290.1" y1="-187.5" x2="65" y2="-207.5"/>
+<line class="act" x1="65" y1="-207.5" x2="-212.2" y2="136.5"/>
+<line class="act" x1="355.1" y1="-150" x2="129.9" y2="-170"/>
+<line class="act" x1="129.9" y1="-170" x2="-147.2" y2="174"/>
+<line class="act" x1="420" y1="-112.5" x2="194.9" y2="-132.5"/>
+<line class="act" x1="194.9" y1="-132.5" x2="-82.3" y2="211.5"/>
+<line class="act" x1="485" y1="-75" x2="259.8" y2="-95"/>
+<line class="act" x1="259.8" y1="-95" x2="-17.3" y2="249"/>
+<line class="act" x1="95.3" y1="-300" x2="0" y2="-308.5"/>
+<line class="act" x1="-407" y1="24" x2="-259.8" y2="-158.5"/>
+<line class="act" x1="160.2" y1="-262.5" x2="0" y2="-276.8"/>
+<line class="act" x1="-342.1" y1="61.5" x2="-129.9" y2="-201.8"/>
+<line class="act" x1="549.9" y1="-37.5" x2="389.7" y2="-51.8"/>
+<line class="act" x1="47.6" y1="286.5" x2="259.8" y2="23.2"/>
+<line class="act" x1="614.9" y1="0" x2="519.6" y2="-8.5"/>
+<line class="act" x1="112.6" y1="324" x2="259.8" y2="141.5"/>
+<line class="act" x1="0" y1="-245" x2="-225.2" y2="-225"/>
+<line class="act" x1="259.8" y1="-95" x2="485" y2="185"/>
+<line class="act" x1="-138.6" y1="-275" x2="0" y2="-287.4"/>
+<line class="act" x1="571.6" y1="135" x2="433" y2="-37.4"/>
+<line class="act" x1="-311.8" y1="-175" x2="-173.2" y2="-187.4"/>
+<line class="act" x1="398.4" y1="235" x2="259.8" y2="62.6"/>
+<line class="dim" x1="259.8" y1="-95" x2="752.1" y2="-95"/>
+<circle class="ac" cx="259.8" cy="-95" r="4"/>
+<text class="t3 halo" x="760.1" y="-88">коньковый брус</text>
+<line class="dim" x1="485" y1="-20.1" x2="752.1" y2="-20.1"/>
+<circle class="ac" cx="485" cy="-20.1" r="4"/>
+<text class="t3 halo" x="760.1" y="-13.1">накосное стропило</text>
+<line class="dim" x1="82.3" y1="6.8" x2="752.1" y2="13.9"/>
+<circle class="ac" cx="82.3" cy="6.8" r="4"/>
+<text class="t3 halo" x="760.1" y="20.9">стропила</text>
+<line class="dim" x1="519.6" y1="70" x2="752.1" y2="70"/>
+<circle class="ac" cx="519.6" cy="70" r="4"/>
+<text class="t3 halo" x="760.1" y="77">верхняя обвязка</text>
+<line class="dim" x1="606.2" y1="150" x2="752.1" y2="150"/>
+<circle class="ac" cx="606.2" cy="150" r="4"/>
+<text class="t3 halo" x="760.1" y="157">стойки</text>
+<line class="dim" x1="346.4" y1="450" x2="752.1" y2="450"/>
+<circle class="ac" cx="346.4" cy="450" r="4"/>
+<text class="t3 halo" x="760.1" y="457">рама пола</text>
+<line class="dim" x1="155.9" y1="590" x2="752.1" y2="590"/>
+<circle class="ac" cx="155.9" cy="590" r="4"/>
+<text class="t3 halo" x="760.1" y="597">винтовые сваи</text>
+<text class="ttl" x="-532.3" y="-425">Металлокаркас · изометрия</text>
+</svg>

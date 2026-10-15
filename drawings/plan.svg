@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="dwg" viewBox="-200 -215 1080 925" width="648" height="555" role="img" aria-label="План этажа дома 7 × 4 м">
+<title>План этажа дома 7 × 4 м</title>
+<!--
+  План этажа. Дом 7 × 4 м (28 м² по наружному контуру). Масштаб 1 м = 60 px: viewBox в сантиметрах, width = см × 0,6.
+  Зоны по длине (по осям перегородок): гостиная с кухней 2,80, санузел 1,50, спальня 2,70.
+  Наружная стена 12 см, перегородки 10 см — уточнить.
+  Санузел у фасада, глубина 2,20 по оси; проход за ним вдоль задней стены ≈ 1,6 в чистоте.
+  Проём из гостиной в проход 90 см без двери, дверь в спальню 80 см, дверь санузла 70 см наружу — уточнить.
+  Окна задней стены: над кухней 1,40, в спальне 1,10; высокое окно санузла 0,70 — уточнить.
+  Мебель и сантехника — типовые размеры, уточнить.
+  Площади зон — по внутренним размерам (в чистоте).
+-->
+<style>
+svg.dwg{--d-ink:#0B2A59;--d-muted:#3F597E;--d-line:#BCCBDF;--d-paper:#EFF4F6;--d-accent:#2D52A2;--d-soft:#70A9F2}
+@media (prefers-color-scheme:dark){svg.dwg{--d-ink:#DBE6EC;--d-muted:#B1C0CF;--d-line:#244A7F;--d-paper:#1A3B66;--d-accent:#70A9F2;--d-soft:#A7CBF0}}
+.dwg .bg{fill:var(--d-paper)}
+.dwg .pc{fill:var(--d-ink)}
+.dwg .ac{fill:var(--d-accent)}
+.dwg .ln,.dwg .th,.dwg .mu,.dwg .hl,.dwg .fx,.dwg .pa,.dwg .sf,.dwg .gl,.dwg .gls,.dwg .acl,.dwg .act,.dwg .dim{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.dwg .ln{fill:none;stroke:var(--d-ink);stroke-width:1.6px}
+.dwg .th{fill:none;stroke:var(--d-ink);stroke-width:.9px}
+.dwg .mu{fill:none;stroke:var(--d-muted);stroke-width:.9px}
+.dwg .hl{fill:none;stroke:var(--d-line);stroke-width:.9px}
+.dwg .fx{fill:var(--d-paper);stroke:var(--d-muted);stroke-width:1px}
+.dwg .pa{fill:var(--d-paper);stroke:var(--d-ink);stroke-width:1.1px}
+.dwg .sf{fill:var(--d-line);stroke:var(--d-ink);stroke-width:1.1px}
+.dwg .gl{fill:none;stroke:var(--d-accent);stroke-width:1.8px}
+.dwg .gls{fill:var(--d-soft);fill-opacity:.22;stroke:var(--d-accent);stroke-width:1px}
+.dwg .acl{fill:none;stroke:var(--d-accent);stroke-width:1.6px}
+.dwg .act{fill:none;stroke:var(--d-accent);stroke-width:.9px}
+.dwg .dim{fill:none;stroke:var(--d-muted);stroke-width:.8px}
+.dwg .dash{stroke-dasharray:14 9}
+.dwg .dd{stroke-dasharray:26 8 4 8}
+.dwg text{font-family:Literata,Georgia,serif;fill:var(--d-ink)}
+.dwg .ttl{font-family:"Roboto Slab",Georgia,serif;font-weight:700;font-size:34px}
+.dwg .t1{font-size:30px;font-weight:600}
+.dwg .t2{font-size:24px;fill:var(--d-muted)}
+.dwg .t3{font-size:20px;fill:var(--d-muted)}
+.dwg .dt{font-size:22px;fill:var(--d-muted);font-variant-numeric:tabular-nums}
+.dwg .halo{paint-order:stroke;stroke:var(--d-paper);stroke-width:7px;stroke-linejoin:round}
+</style>
+<rect class="bg" x="-200" y="-215" width="1080" height="925"/>
+<!-- Контур свеса крыши: 1,20 над террасой, 0,60 с остальных сторон -->
+<rect class="mu dash" x="-60" y="-60" width="820" height="580"/>
+<text class="t3" x="-50" y="-72">контур свеса крыши</text>
+<!-- Терраса 7,00 × 1,20 и три ступени -->
+<rect class="pa" x="0" y="400" width="700" height="120"/>
+<line class="hl" x1="0" y1="415" x2="700" y2="415"/>
+<line class="hl" x1="0" y1="430" x2="700" y2="430"/>
+<line class="hl" x1="0" y1="445" x2="700" y2="445"/>
+<line class="hl" x1="0" y1="460" x2="700" y2="460"/>
+<line class="hl" x1="0" y1="475" x2="700" y2="475"/>
+<line class="hl" x1="0" y1="490" x2="700" y2="490"/>
+<line class="hl" x1="0" y1="505" x2="700" y2="505"/>
+<rect class="pa" x="90" y="520" width="120" height="90"/>
+<line class="th" x1="90" y1="550" x2="210" y2="550"/>
+<line class="th" x1="90" y1="580" x2="210" y2="580"/>
+<!-- Мебель и сантехника (типовые размеры — уточнить) -->
+<rect class="fx" x="12" y="12" width="238" height="60"/>
+<rect class="fx" x="115" y="20" width="55" height="44" rx="6"/>
+<circle class="mu" cx="192" cy="30" r="9"/>
+<circle class="mu" cx="192" cy="56" r="9"/>
+<circle class="mu" cx="224" cy="30" r="9"/>
+<circle class="mu" cx="224" cy="56" r="9"/>
+<text class="t3" x="64" y="50" text-anchor="middle">кухня</text>
+<rect class="fx" x="22" y="170" width="85" height="200" rx="6"/>
+<line class="mu" x1="42" y1="185" x2="42" y2="355"/>
+<line class="mu" x1="22" y1="185" x2="107" y2="185"/>
+<line class="mu" x1="22" y1="355" x2="107" y2="355"/>
+<rect class="fx" x="130" y="240" width="50" height="60" rx="4"/>
+<rect class="fx" x="285" y="205" width="40" height="45" rx="4"/>
+<ellipse class="mu" cx="305" cy="227" rx="12" ry="15"/>
+<rect class="fx" x="407" y="215" width="18" height="40" rx="3"/>
+<ellipse class="fx" cx="387" cy="235" rx="20" ry="16"/>
+<rect class="fx" x="285" y="298" width="140" height="90"/>
+<line class="hl" x1="285" y1="298" x2="425" y2="388"/>
+<line class="hl" x1="425" y1="298" x2="285" y2="388"/>
+<circle class="mu" cx="355" cy="343" r="5"/>
+<line class="gl" x1="285" y1="298" x2="380" y2="298"/>
+<rect class="fx" x="488" y="120" width="200" height="160" rx="4"/>
+<rect class="fx" x="650" y="130" width="30" height="65" rx="6"/>
+<rect class="fx" x="650" y="205" width="30" height="65" rx="6"/>
+<line class="mu" x1="600" y1="120" x2="600" y2="280"/>
+<rect class="fx" x="648" y="76" width="40" height="40" rx="3"/>
+<rect class="fx" x="648" y="284" width="40" height="40" rx="3"/>
+<!-- Стены (разрез на высоте 1 м, заливка) -->
+<rect class="pc" x="0" y="0" width="60" height="12"/>
+<rect class="pc" x="200" y="0" width="260" height="12"/>
+<rect class="pc" x="570" y="0" width="130" height="12"/>
+<line class="th" x1="60" y1="0" x2="200" y2="0"/>
+<line class="th" x1="60" y1="12" x2="200" y2="12"/>
+<line class="gl" x1="60" y1="6" x2="200" y2="6"/>
+<line class="th" x1="460" y1="0" x2="570" y2="0"/>
+<line class="th" x1="460" y1="12" x2="570" y2="12"/>
+<line class="gl" x1="460" y1="6" x2="570" y2="6"/>
+<rect class="pc" x="0" y="0" width="12" height="400"/>
+<rect class="pc" x="688" y="0" width="12" height="400"/>
+<rect class="pc" x="275" y="388" width="45" height="12"/>
+<rect class="pc" x="390" y="388" width="45" height="12"/>
+<line class="th" x1="320" y1="388" x2="390" y2="388"/>
+<line class="th" x1="320" y1="400" x2="390" y2="400"/>
+<line class="gl dash" x1="320" y1="394" x2="390" y2="394"/>
+<line class="th" x1="12" y1="388" x2="275" y2="388"/>
+<line class="th" x1="12" y1="400" x2="275" y2="400"/>
+<line class="gl" x1="12" y1="391.5" x2="150.5" y2="391.5"/>
+<line class="gl" x1="136.5" y1="396.5" x2="275" y2="396.5"/>
+<line class="th" x1="435" y1="388" x2="688" y2="388"/>
+<line class="th" x1="435" y1="400" x2="688" y2="400"/>
+<line class="gl" x1="435" y1="391.5" x2="568.5" y2="391.5"/>
+<line class="gl" x1="554.5" y1="396.5" x2="688" y2="396.5"/>
+<rect class="pc" x="275" y="12" width="10" height="68"/>
+<rect class="pc" x="275" y="170" width="10" height="218"/>
+<rect class="pc" x="425" y="12" width="10" height="18"/>
+<rect class="pc" x="425" y="110" width="10" height="278"/>
+<rect class="pc" x="285" y="175" width="45" height="10"/>
+<rect class="pc" x="400" y="175" width="25" height="10"/>
+<!-- Двери с дугами открывания -->
+<line class="ln" x1="435" y1="30" x2="515" y2="30"/>
+<path class="mu" d="M515 30A80 80 0 0 1 435 110"/>
+<line class="ln" x1="400" y1="175" x2="400" y2="105"/>
+<path class="mu" d="M400 105A70 70 0 0 0 330 175"/>
+<!-- Подписи зон: площадь в чистоте -->
+<text class="t1 halo" x="165" y="128" text-anchor="middle">Гостиная</text>
+<text class="t1 halo" x="165" y="160" text-anchor="middle">и кухня</text>
+<text class="t2 halo" x="165" y="192" text-anchor="middle">9,9 м²</text>
+<text class="t3" x="355" y="60" text-anchor="middle">проход</text>
+<text class="t3" x="355" y="84" text-anchor="middle">2,3 м²</text>
+<text class="t3" x="355" y="274" text-anchor="middle">санузел</text>
+<text class="t3" x="355" y="294" text-anchor="middle">2,8 м²</text>
+<text class="t3 halo" x="355" y="368" text-anchor="middle">душ</text>
+<text class="t1 halo" x="560" y="340" text-anchor="middle">Спальня</text>
+<text class="t2 halo" x="560" y="370" text-anchor="middle">9,5 м²</text>
+<text class="t1 halo" x="540" y="458" text-anchor="middle">Терраса</text>
+<text class="t2 halo" x="540" y="488" text-anchor="middle">8,4 м²</text>
+<text class="t3" x="224" y="572">3 ступени</text>
+<line class="acl" x1="150" y1="590" x2="150" y2="414"/>
+<polygon class="ac" points="150,404 156.3,418 143.7,418"/>
+<text class="t3 halo" x="138" y="470" text-anchor="end">вход</text>
+<!-- Линия разреза А–А через спальню (x = 4,80), взгляд влево -->
+<line class="ln" x1="480" y1="-100" x2="480" y2="-52"/>
+<line class="ln" x1="480" y1="-100" x2="448" y2="-100"/>
+<polygon class="ac" points="440,-100 452,-105.4 452,-94.6"/>
+<text class="t1" x="424" y="-92" text-anchor="end">А</text>
+<line class="ln" x1="480" y1="590" x2="480" y2="542"/>
+<line class="ln" x1="480" y1="590" x2="448" y2="590"/>
+<polygon class="ac" points="440,590 452,584.6 452,595.4"/>
+<text class="t1" x="424" y="598" text-anchor="end">А</text>
+<!-- Размеры, м -->
+<line class="dim" x1="0" y1="-8" x2="0" y2="-150"/>
+<line class="th" x1="-7" y1="-133" x2="7" y2="-147"/>
+<line class="dim" x1="280" y1="-8" x2="280" y2="-150"/>
+<line class="th" x1="273" y1="-133" x2="287" y2="-147"/>
+<line class="dim" x1="430" y1="-8" x2="430" y2="-150"/>
+<line class="th" x1="423" y1="-133" x2="437" y2="-147"/>
+<line class="dim" x1="700" y1="-8" x2="700" y2="-150"/>
+<line class="th" x1="693" y1="-133" x2="707" y2="-147"/>
+<line class="dim" x1="-10" y1="-140" x2="710" y2="-140"/>
+<text class="dt" x="140" y="-148" text-anchor="middle">2,80</text>
+<text class="dt" x="355" y="-148" text-anchor="middle">1,50</text>
+<text class="dt" x="565" y="-148" text-anchor="middle">2,70</text>
+<line class="dim" x1="0" y1="528" x2="0" y2="670"/>
+<line class="th" x1="-7" y1="667" x2="7" y2="653"/>
+<line class="dim" x1="700" y1="528" x2="700" y2="670"/>
+<line class="th" x1="693" y1="667" x2="707" y2="653"/>
+<line class="dim" x1="-10" y1="660" x2="710" y2="660"/>
+<text class="dt" x="350" y="652" text-anchor="middle">7,00</text>
+<line class="dim" x1="-8" y1="0" x2="-125" y2="0"/>
+<line class="th" x1="-122" y1="7" x2="-108" y2="-7"/>
+<line class="dim" x1="-8" y1="180" x2="-125" y2="180"/>
+<line class="th" x1="-122" y1="187" x2="-108" y2="173"/>
+<line class="dim" x1="-8" y1="400" x2="-125" y2="400"/>
+<line class="th" x1="-122" y1="407" x2="-108" y2="393"/>
+<line class="dim" x1="-8" y1="520" x2="-125" y2="520"/>
+<line class="th" x1="-122" y1="527" x2="-108" y2="513"/>
+<line class="dim" x1="-8" y1="610" x2="-125" y2="610"/>
+<line class="th" x1="-122" y1="617" x2="-108" y2="603"/>
+<line class="dim" x1="-115" y1="-10" x2="-115" y2="620"/>
+<text class="dt" x="-123" y="90" text-anchor="middle" transform="rotate(-90 -123 90)">1,80</text>
+<text class="dt" x="-123" y="290" text-anchor="middle" transform="rotate(-90 -123 290)">2,20</text>
+<text class="dt" x="-123" y="460" text-anchor="middle" transform="rotate(-90 -123 460)">1,20</text>
+<text class="dt" x="-123" y="565" text-anchor="middle" transform="rotate(-90 -123 565)">0,90</text>
+<line class="dim" x1="708" y1="0" x2="830" y2="0"/>
+<line class="th" x1="813" y1="7" x2="827" y2="-7"/>
+<line class="dim" x1="708" y1="400" x2="830" y2="400"/>
+<line class="th" x1="813" y1="407" x2="827" y2="393"/>
+<line class="dim" x1="820" y1="-10" x2="820" y2="410"/>
+<text class="dt" x="812" y="200" text-anchor="middle" transform="rotate(-90 812 200)">4,00</text>
+<text class="ttl" x="-180" y="-180">План этажа · 7 × 4 м</text>
+<text class="t3" x="-180" y="700">Площади — в чистоте. По наружному контуру — 28 м².</text>
+</svg>

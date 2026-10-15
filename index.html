@@ -58,7 +58,14 @@
       <figure class="plan"><div id="planSvg"></div><figcaption>Схема</figcaption></figure>
       <dl class="specs" id="planSpecs"></dl>
       <p class="plan-price" id="planPrice"></p>
-      <figure class="plate"><img src="img/facades.jpg" alt="Концепт фасадов: длинная сторона и торец дома"><figcaption>План-концепт. Точный чертёж 7 × 4 готовим</figcaption></figure>
+      <button type="button" class="dwg-main" data-dwg="plan" aria-label="План этажа 7 × 4 м — открыть на весь экран"><span class="dwg-host" data-dwg-src="plan"></span></button>
+      <div class="dwg-thumbs noswipe">
+        <button type="button" class="dwg-thumb" data-dwg="facade-front"><span class="dwg-host" data-dwg-src="facade-front"></span><span>Фасад</span></button>
+        <button type="button" class="dwg-thumb" data-dwg="facade-end"><span class="dwg-host" data-dwg-src="facade-end"></span><span>Торец</span></button>
+        <button type="button" class="dwg-thumb" data-dwg="section"><span class="dwg-host" data-dwg-src="section"></span><span>Разрез</span></button>
+        <button type="button" class="dwg-thumb" data-dwg="piles"><span class="dwg-host" data-dwg-src="piles"></span><span>Сваи</span></button>
+        <button type="button" class="dwg-thumb" data-dwg="frame"><span class="dwg-host" data-dwg-src="frame"></span><span>Каркас</span></button>
+      </div>
     </section>
 
     <section class="screen" data-cta="Посчитать дом" data-label="Каркас" data-desc="Металл + дерево: 4 правила крепежа">
@@ -72,7 +79,7 @@
         <li>Между деревом и металлом — гидроизоляция</li>
         <li>Где нужно, оставляем вентиляционный зазор</li>
       </ul>
-      <p class="small">На схеме каркас 7 × 3 м. Чертёж для 7 × 4 готовим.</p>
+      <p class="small">На схеме каркас 7 × 3 м. <button type="button" class="link-btn" data-dwg="frame">Открыть схему каркаса 7 × 4</button></p>
     </section>
 
     <section class="screen calc" id="calc" data-cta="Сколько ждать" data-label="Калькулятор" data-desc="Цена и срок под ваш размер">
@@ -213,9 +220,15 @@
     <ol class="toc" id="tocList"></ol>
   </div>
 </div>
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewerTitle" aria-hidden="true">
+  <div class="viewer-top"><span class="viewer-title" id="viewerTitle"></span><button type="button" class="viewer-close" id="viewerClose" aria-label="Закрыть">×</button></div>
+  <div class="viewer-stage" id="viewerStage"><div class="viewer-canvas dwg-host" id="viewerCanvas"></div></div>
+  <p class="viewer-hint">Двумя пальцами — приблизить · вниз — закрыть</p>
+</div>
 <script src="calc-data.js"></script>
 <script src="calc.js"></script>
 <script src="plan.js"></script>
+<script src="drawings.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

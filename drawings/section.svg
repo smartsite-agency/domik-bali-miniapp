@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="dwg" viewBox="-260 -590 1160 920" width="696" height="552" role="img" aria-label="Поперечный разрез А–А через спальню">
+<title>Поперечный разрез А–А через спальню</title>
+<!--
+  Масштаб 1 м = 60 px: viewBox в сантиметрах, width = см × 0,6.
+  Уклон кровли 30°, свес 1,20 над террасой и 0,60 с остальных сторон. Низ стропил опирается на верх стен +3.30 — уточнить.
+  Конёк: низ +4.45, верх +4.66; низ свеса над террасой +2.61, остальные +2.95.
+  Толщина кровли 21 см (стропила 50×150, обрешётка, черепица) — уточнить.
+  Пол +0,60, потолок 2,60 от пола (+3,20). Рама пола 15 см на винтовых сваях — уточнить.
+  Разрез А–А по оси x = 4,80 (спальня), взгляд в сторону гостиной.
+  Винтовые сваи ø108, длина ≈ 2,0 м — уточнить по грунту. Балки пола 100×150, настил 4 см — уточнить.
+  Окно задней стены: низ 0,90, верх 2,10 от пола — уточнить. Дверь в перегородке 0,80 × 2,10 — уточнить.
+-->
+<style>
+svg.dwg{--d-ink:#0B2A59;--d-muted:#3F597E;--d-line:#BCCBDF;--d-paper:#EFF4F6;--d-accent:#2D52A2;--d-soft:#70A9F2}
+@media (prefers-color-scheme:dark){svg.dwg{--d-ink:#DBE6EC;--d-muted:#B1C0CF;--d-line:#244A7F;--d-paper:#1A3B66;--d-accent:#70A9F2;--d-soft:#A7CBF0}}
+.dwg .bg{fill:var(--d-paper)}
+.dwg .pc{fill:var(--d-ink)}
+.dwg .ac{fill:var(--d-accent)}
+.dwg .ln,.dwg .th,.dwg .mu,.dwg .hl,.dwg .fx,.dwg .pa,.dwg .sf,.dwg .gl,.dwg .gls,.dwg .acl,.dwg .act,.dwg .dim{vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.dwg .ln{fill:none;stroke:var(--d-ink);stroke-width:1.6px}
+.dwg .th{fill:none;stroke:var(--d-ink);stroke-width:.9px}
+.dwg .mu{fill:none;stroke:var(--d-muted);stroke-width:.9px}
+.dwg .hl{fill:none;stroke:var(--d-line);stroke-width:.9px}
+.dwg .fx{fill:var(--d-paper);stroke:var(--d-muted);stroke-width:1px}
+.dwg .pa{fill:var(--d-paper);stroke:var(--d-ink);stroke-width:1.1px}
+.dwg .sf{fill:var(--d-line);stroke:var(--d-ink);stroke-width:1.1px}
+.dwg .gl{fill:none;stroke:var(--d-accent);stroke-width:1.8px}
+.dwg .gls{fill:var(--d-soft);fill-opacity:.22;stroke:var(--d-accent);stroke-width:1px}
+.dwg .acl{fill:none;stroke:var(--d-accent);stroke-width:1.6px}
+.dwg .act{fill:none;stroke:var(--d-accent);stroke-width:.9px}
+.dwg .dim{fill:none;stroke:var(--d-muted);stroke-width:.8px}
+.dwg .dash{stroke-dasharray:14 9}
+.dwg .dd{stroke-dasharray:26 8 4 8}
+.dwg text{font-family:Literata,Georgia,serif;fill:var(--d-ink)}
+.dwg .ttl{font-family:"Roboto Slab",Georgia,serif;font-weight:700;font-size:34px}
+.dwg .t1{font-size:30px;font-weight:600}
+.dwg .t2{font-size:24px;fill:var(--d-muted)}
+.dwg .t3{font-size:20px;fill:var(--d-muted)}
+.dwg .dt{font-size:22px;fill:var(--d-muted);font-variant-numeric:tabular-nums}
+.dwg .halo{paint-order:stroke;stroke:var(--d-paper);stroke-width:7px;stroke-linejoin:round}
+</style>
+<rect class="bg" x="-260" y="-590" width="1160" height="920"/>
+<!-- Грунт и винтовые сваи (за плоскостью разреза) -->
+<line class="ln" x1="-240" y1="0" x2="760" y2="0"/>
+<line class="hl" x1="-220" y1="0" x2="-236" y2="16"/>
+<line class="hl" x1="-190" y1="0" x2="-206" y2="16"/>
+<line class="hl" x1="-160" y1="0" x2="-176" y2="16"/>
+<line class="hl" x1="-130" y1="0" x2="-146" y2="16"/>
+<line class="hl" x1="-100" y1="0" x2="-116" y2="16"/>
+<line class="hl" x1="-70" y1="0" x2="-86" y2="16"/>
+<line class="hl" x1="-40" y1="0" x2="-56" y2="16"/>
+<line class="hl" x1="-10" y1="0" x2="-26" y2="16"/>
+<line class="hl" x1="20" y1="0" x2="4" y2="16"/>
+<line class="hl" x1="50" y1="0" x2="34" y2="16"/>
+<line class="hl" x1="80" y1="0" x2="64" y2="16"/>
+<line class="hl" x1="110" y1="0" x2="94" y2="16"/>
+<line class="hl" x1="140" y1="0" x2="124" y2="16"/>
+<line class="hl" x1="170" y1="0" x2="154" y2="16"/>
+<line class="hl" x1="200" y1="0" x2="184" y2="16"/>
+<line class="hl" x1="230" y1="0" x2="214" y2="16"/>
+<line class="hl" x1="260" y1="0" x2="244" y2="16"/>
+<line class="hl" x1="290" y1="0" x2="274" y2="16"/>
+<line class="hl" x1="320" y1="0" x2="304" y2="16"/>
+<line class="hl" x1="350" y1="0" x2="334" y2="16"/>
+<line class="hl" x1="380" y1="0" x2="364" y2="16"/>
+<line class="hl" x1="410" y1="0" x2="394" y2="16"/>
+<line class="hl" x1="440" y1="0" x2="424" y2="16"/>
+<line class="hl" x1="470" y1="0" x2="454" y2="16"/>
+<line class="hl" x1="500" y1="0" x2="484" y2="16"/>
+<line class="hl" x1="530" y1="0" x2="514" y2="16"/>
+<line class="hl" x1="560" y1="0" x2="544" y2="16"/>
+<line class="hl" x1="590" y1="0" x2="574" y2="16"/>
+<line class="hl" x1="620" y1="0" x2="604" y2="16"/>
+<line class="hl" x1="650" y1="0" x2="634" y2="16"/>
+<line class="hl" x1="680" y1="0" x2="664" y2="16"/>
+<line class="hl" x1="710" y1="0" x2="694" y2="16"/>
+<line class="hl" x1="740" y1="0" x2="724" y2="16"/>
+<rect class="pa" x="-6" y="-39" width="12" height="39"/>
+<rect class="pc" x="-12" y="-42" width="24" height="3"/>
+<line class="th dash" x1="-6" y1="0" x2="-6" y2="200"/>
+<line class="th dash" x1="6" y1="0" x2="6" y2="200"/>
+<line class="th" x1="-24" y1="178" x2="24" y2="192"/>
+<polygon class="th" points="-6,200 0,214 6,200"/>
+<rect class="pa" x="194" y="-39" width="12" height="39"/>
+<rect class="pc" x="188" y="-42" width="24" height="3"/>
+<line class="th dash" x1="194" y1="0" x2="194" y2="200"/>
+<line class="th dash" x1="206" y1="0" x2="206" y2="200"/>
+<line class="th" x1="176" y1="178" x2="224" y2="192"/>
+<polygon class="th" points="194,200 200,214 206,200"/>
+<rect class="pa" x="394" y="-39" width="12" height="39"/>
+<rect class="pc" x="388" y="-42" width="24" height="3"/>
+<line class="th dash" x1="394" y1="0" x2="394" y2="200"/>
+<line class="th dash" x1="406" y1="0" x2="406" y2="200"/>
+<line class="th" x1="376" y1="178" x2="424" y2="192"/>
+<polygon class="th" points="394,200 400,214 406,200"/>
+<rect class="pa" x="514" y="-39" width="12" height="39"/>
+<rect class="pc" x="508" y="-42" width="24" height="3"/>
+<line class="th dash" x1="514" y1="0" x2="514" y2="200"/>
+<line class="th dash" x1="526" y1="0" x2="526" y2="200"/>
+<line class="th" x1="496" y1="178" x2="544" y2="192"/>
+<polygon class="th" points="514,200 520,214 526,200"/>
+<!-- Рама пола: поперечная балка за разрезом, продольные балки и настил в разрезе -->
+<rect class="th" x="0" y="-56" width="520" height="14"/>
+<rect class="pc" x="0" y="-56" width="10" height="14"/>
+<rect class="pc" x="195" y="-56" width="10" height="14"/>
+<rect class="pc" x="390" y="-56" width="10" height="14"/>
+<rect class="pc" x="510" y="-56" width="10" height="14"/>
+<rect class="pc" x="0" y="-60" width="520" height="4"/>
+<!-- Ступени за разрезом -->
+<polygon class="th" points="520,-45 550,-45 550,-30 580,-30 580,-15 610,-15 610,0 520,0"/>
+<!-- Перегородка спальни за разрезом, дверь 0,80 × 2,10 -->
+<rect class="hl" x="12" y="-320" width="376" height="260"/>
+<rect class="th" x="30" y="-270" width="80" height="210"/>
+<!-- Задняя стена: окно 0,90–2,10 от пола -->
+<rect class="pc" x="0" y="-150" width="12" height="90"/>
+<rect class="pc" x="0" y="-330" width="12" height="60"/>
+<line class="th" x1="0" y1="-150" x2="0" y2="-270"/>
+<line class="th" x1="12" y1="-150" x2="12" y2="-270"/>
+<line class="gl" x1="6" y1="-152" x2="6" y2="-268"/>
+<!-- Фасад: раздвижное окно от пола до потолка, над ним ригель -->
+<rect class="pc" x="388" y="-64" width="12" height="4"/>
+<line class="gl" x1="392" y1="-64" x2="392" y2="-318"/>
+<line class="gl" x1="396" y1="-64" x2="396" y2="-318"/>
+<rect class="pc" x="388" y="-330" width="12" height="12"/>
+<!-- Потолок 2,60 -->
+<rect class="pc" x="12" y="-323" width="376" height="3"/>
+<!-- Кровля в разрезе: стропила, обрешётка, черепица; коньковый брус -->
+<polygon class="sf" points="-60,-316 200,-466 520,-282 520,-261 200,-445 -60,-295"/>
+<rect class="pc" x="195" y="-445" width="10" height="20"/>
+<!-- Уклон 30° -->
+<line class="dim" x1="-60" y1="-295" x2="60" y2="-295"/>
+<path class="dim" d="M40 -295A100 100 0 0 0 26.6 -345"/>
+<text class="dt" x="50" y="-313">30°</text>
+<!-- Подписи -->
+<text class="t1 halo" x="200" y="-200" text-anchor="middle">Спальня</text>
+<text class="t3 halo" x="460" y="-110" text-anchor="middle">терраса</text>
+<text class="t3" x="-40" y="-420" text-anchor="end">черепица по обрешётке,</text>
+<text class="t3" x="-40" y="-396" text-anchor="end">стропила 50×150</text>
+<line class="dim" x1="-34" y1="-404" x2="40" y2="-350"/>
+<text class="t3" x="-30" y="-200" text-anchor="end">металлокаркас,</text>
+<text class="t3" x="-30" y="-176" text-anchor="end">деревянная обшивка</text>
+<line class="dim" x1="-24" y1="-190" x2="0" y2="-190"/>
+<text class="t3" x="-30" y="-44" text-anchor="end">балки пола</text>
+<line class="dim" x1="-24" y1="-50" x2="0" y2="-50"/>
+<text class="t3" x="222" y="120">винтовая свая ø108</text>
+<text class="t3" x="222" y="144">L ≈ 2,0 м — уточнить</text>
+<line class="dim" x1="216" y1="114" x2="206" y2="114"/>
+<!-- Отметки высот -->
+<line class="dim" x1="622" y1="0" x2="850" y2="0"/>
+<polygon class="pa" points="700,0 691,-13 709,-13"/>
+<text class="dt" x="716" y="-6">±0,000</text>
+<text class="t3" x="716" y="20">земля</text>
+<line class="dim" x1="532" y1="-60" x2="850" y2="-60"/>
+<polygon class="pa" points="700,-60 691,-73 709,-73"/>
+<text class="dt" x="716" y="-66">+0,600</text>
+<text class="t3" x="716" y="-40">пол</text>
+<line class="dim" x1="532" y1="-261" x2="850" y2="-261"/>
+<polygon class="pa" points="700,-261 691,-274 709,-274"/>
+<text class="dt" x="716" y="-267">+2,610</text>
+<text class="t3" x="716" y="-241">низ свеса</text>
+<line class="dim" x1="400" y1="-320" x2="850" y2="-320"/>
+<polygon class="pa" points="700,-320 691,-333 709,-333"/>
+<text class="dt" x="716" y="-326">+3,200</text>
+<text class="t3" x="716" y="-300">потолок</text>
+<line class="dim" x1="212" y1="-466" x2="850" y2="-466"/>
+<polygon class="pa" points="700,-466 691,-479 709,-479"/>
+<text class="dt" x="716" y="-472">+4,660</text>
+<text class="t3" x="716" y="-446">конёк</text>
+<!-- Размеры, м -->
+<line class="th" x1="293" y1="-53" x2="307" y2="-67"/>
+<line class="th" x1="293" y1="-313" x2="307" y2="-327"/>
+<line class="dim" x1="300" y1="-70" x2="300" y2="-310"/>
+<text class="dt" x="292" y="-190" text-anchor="middle" transform="rotate(-90 292 -190)">2,60</text>
+<line class="dim" x1="-68" y1="200" x2="-140" y2="200"/>
+<line class="th" x1="-137" y1="207" x2="-123" y2="193"/>
+<line class="dim" x1="-68" y1="0" x2="-140" y2="0"/>
+<line class="th" x1="-137" y1="7" x2="-123" y2="-7"/>
+<line class="dim" x1="-68" y1="-60" x2="-140" y2="-60"/>
+<line class="th" x1="-137" y1="-53" x2="-123" y2="-67"/>
+<line class="dim" x1="-130" y1="190" x2="-130" y2="-50"/>
+<text class="dt" x="-138" y="100" text-anchor="middle" transform="rotate(-90 -138 100)">≈ 2,00</text>
+<text class="dt" x="-138" y="-30" text-anchor="middle" transform="rotate(-90 -138 -30)">0,60</text>
+<line class="dim" x1="-60" y1="8" x2="-60" y2="280"/>
+<line class="th" x1="-67" y1="277" x2="-53" y2="263"/>
+<line class="dim" x1="0" y1="8" x2="0" y2="280"/>
+<line class="th" x1="-7" y1="277" x2="7" y2="263"/>
+<line class="dim" x1="400" y1="8" x2="400" y2="280"/>
+<line class="th" x1="393" y1="277" x2="407" y2="263"/>
+<line class="dim" x1="520" y1="8" x2="520" y2="280"/>
+<line class="th" x1="513" y1="277" x2="527" y2="263"/>
+<line class="dim" x1="610" y1="8" x2="610" y2="280"/>
+<line class="th" x1="603" y1="277" x2="617" y2="263"/>
+<line class="dim" x1="-70" y1="270" x2="620" y2="270"/>
+<text class="dt" x="-30" y="262" text-anchor="middle">0,60</text>
+<text class="dt" x="200" y="262" text-anchor="middle">4,00</text>
+<text class="dt" x="460" y="262" text-anchor="middle">1,20</text>
+<text class="dt" x="565" y="262" text-anchor="middle">0,90</text>
+<text class="ttl" x="-250" y="-555">Разрез А–А · через спальню</text>
+</svg>

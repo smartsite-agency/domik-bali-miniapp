@@ -162,7 +162,7 @@
       </div>
     </section>
 
-    <section class="screen" data-cta="Посмотреть другую модель" data-label="Сроки" data-desc="8 этапов от разметки до ключей">
+    <section class="screen" data-cta="Открыть дневник стройки" data-label="Сроки" data-desc="8 этапов от разметки до ключей">
       <div class="eyebrow">Таймлайн</div>
       <h2>Сколько ждать</h2>
       <div class="big">День 0<small>Счётчик запустим в день разметки участка.</small></div>
@@ -176,6 +176,13 @@
         <li><span>Отделка</span><em>впереди</em></li>
         <li><span>Ключи</span><em>впереди</em></li>
       </ol>
+    </section>
+
+    <section class="screen" id="diary" data-cta="Посмотреть другую модель" data-label="Дневник" data-desc="Дни стройки, траты и ошибки">
+      <div class="eyebrow">Дневник стройки</div>
+      <h2>Как идёт стройка</h2>
+      <p class="note diary-sum" id="diarySum" aria-live="polite"></p>
+      <ol class="diary-feed" id="diaryFeed"></ol>
     </section>
 
     <section class="screen" data-cta="Получить гайд" data-label="Вариант" data-desc="Плоская крыша, веранда, 2 фасада">
@@ -216,6 +223,11 @@
     <div class="sheet-title" id="tocTitle">Содержание</div>
     <ol class="toc" id="tocList"></ol>
   </div>
+  <div class="sheet-backdrop" id="diaryBackdrop"></div>
+  <div class="sheet diary-sheet" id="diarySheet" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="diaryTitle" aria-hidden="true">
+    <div class="sheet-grip" aria-hidden="true"></div>
+    <div class="diary-body" id="diaryBody"></div>
+  </div>
 </div>
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="viewerTitle" aria-hidden="true">
   <div class="viewer-top"><span class="viewer-title" id="viewerTitle"></span><button type="button" class="viewer-close" id="viewerClose" aria-label="Закрыть">×</button></div>
@@ -224,6 +236,8 @@
 </div>
 <script src="calc-data.js"></script>
 <script src="calc.js"></script>
+<script src="diary-data.js"></script>
+<script src="diary.js"></script>
 <script src="drawings.js"></script>
 <script src="plan.js"></script>
 <script src="app.js"></script>

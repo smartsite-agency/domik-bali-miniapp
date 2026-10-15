@@ -54,11 +54,16 @@ function render(){
   syncTg();
 }
 
-function viewerOpen(){ return !!(window.Viewer && Viewer.isOpen()); }
+// Панели поверх экрана: просмотр чертежа (drawings.js) и запись дневника (diary.js)
+function overlay(){
+  var list = [window.Viewer, window.Diary];
+  for(var i = 0; i < list.length; i++) if(list[i] && list[i].isOpen()) return list[i];
+  return null;
+}
 
 function syncTg(){
   if(!tg) return;
-  if(tocOpen || viewerOpen()){ tg.MainButton.hide(); tg.BackButton.show(); return; }
+  if(tocOpen || overlay()){ tg.MainButton.hide(); tg.BackButton.show(); return; }
   tg.MainButton.setText(screens[current].dataset.cta); tg.MainButton.show();
   current>0 ? tg.BackButton.show() : tg.BackButton.hide();
 }
@@ -133,7 +138,7 @@ document.getElementById("stage").addEventListener("touchend",function(e){
   if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)*1.5){ dx<0 ? go(current+1) : go(current-1); }
 });
 document.addEventListener("keydown",function(e){
-  if(viewerOpen()) return; // Esc обрабатывает drawings.js
+  if(overlay()) return; // Esc обрабатывают drawings.js и diary.js
   if(tocOpen){ if(e.key==="Escape") closeToc(); return; }
   if(e.key==="ArrowRight") go(current+1);
   if(e.key==="ArrowLeft") go(current-1);
@@ -155,7 +160,7 @@ if(tg){
   applyTheme();
   tg.onEvent("themeChanged", applyTheme);
   tg.MainButton.onClick(next);
-  tg.BackButton.onClick(function(){ viewerOpen() ? Viewer.close() : tocOpen ? closeToc() : go(current-1); });
+  tg.BackButton.onClick(function(){ var o = overlay(); o ? o.close() : tocOpen ? closeToc() : go(current-1); });
 }
 
 render();

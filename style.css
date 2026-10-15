@@ -60,6 +60,7 @@ p{margin:0;max-width:62ch}
 
 figure{margin:0;position:relative}
 figure img{display:block;width:100%;border-radius:14px;background:var(--line)}
+.hero img{height:auto;aspect-ratio:3/2;object-fit:contain}
 .plate img{background:var(--plate);padding:8px}
 .badge{position:absolute;top:10px;left:10px;background:var(--badge-solid);color:var(--badge-ink);border:1px solid var(--glass-line);font-size:11px;
   letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;font-weight:600}

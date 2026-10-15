@@ -1,0 +1,15 @@
+# Бекапы и архивы
+backups/
+*.zip
+
+# Системные файлы
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+*~
+*.swp
+
+# Редакторы
+.vscode/
+.idea/

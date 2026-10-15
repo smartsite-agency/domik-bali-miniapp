@@ -22,6 +22,9 @@ function layoutHint(k){
 var NB = " ";
 
 function $(id){ return document.getElementById(id); }
+function out(name, text){
+  Array.prototype.forEach.call(document.querySelectorAll('[data-calc-out="' + name + '"]'), function(el){ el.textContent = text; });
+}
 function grp(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, NB); }
 function dec(n){ return String(n).replace(".", ","); }
 function mln(x){ var v = x/1e6; return v >= 10 ? grp(v) : dec(Math.round(v*10)/10); }
@@ -100,9 +103,10 @@ function compute(over){
 
 function render(){
   var r = compute();
-  $("calcTotal").textContent = "Rp " + rangeMln(r.total.min, r.total.max);
-  $("calcUsd").textContent = "≈ $" + range(r.total.min, r.total.max, usd);
-  $("calcWeeks").textContent = r.weeks[0] + "–" + r.weeks[1] + NB + "недель";
+  // Блок суммы (.calc-sum) есть в калькуляторе и на экране «Дом» — заполняем все
+  out("total", "Rp " + rangeMln(r.total.min, r.total.max));
+  out("usd", "≈ $" + range(r.total.min, r.total.max, usd));
+  out("weeks", r.weeks[0] + "–" + r.weeks[1] + NB + "недель");
 
   ["w", "l", "terrace"].forEach(function(k){
     var lim = LIMITS[k];

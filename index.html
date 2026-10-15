@@ -50,13 +50,17 @@
     <section class="screen" id="layouts" data-cta="Как он устроен" data-label="Дом" data-desc="2 планировки, чертежи 7 × 4 м">
       <div class="eyebrow">Планировка</div>
       <h2>Какой дом получится</h2>
+      <div class="calc-sum calc-sum-static" aria-live="polite">
+        <div class="calc-total" data-calc-out="total">Rp —</div>
+        <div class="calc-sub"><span data-calc-out="usd"></span> · <span data-calc-out="weeks"></span></div>
+        <button type="button" class="link-btn calc-more" data-go="calc">Посчитать точнее →</button>
+      </div>
       <div class="seg noswipe" role="group" aria-label="Планировка">
         <button type="button" data-set="layout" data-val="bedroom">Со спальней</button>
         <button type="button" data-set="layout" data-val="studio">Студия</button>
       </div>
       <button type="button" class="dwg-main" id="planDwg" data-dwg="plan" aria-label="План этажа 7 × 4 м — открыть на весь экран"><span class="dwg-host" data-dwg-src="plan"></span></button>
       <dl class="specs" id="planSpecs"></dl>
-      <p class="plan-price" id="planPrice"></p>
       <div class="dwg-thumbs noswipe">
         <button type="button" class="dwg-thumb" data-dwg="facade-front"><span class="dwg-host" data-dwg-src="facade-front"></span><span>Фасад</span></button>
         <button type="button" class="dwg-thumb" data-dwg="facade-end"><span class="dwg-host" data-dwg-src="facade-end"></span><span>Торец</span></button>
@@ -80,8 +84,8 @@
       <div class="eyebrow">Калькулятор дома</div>
       <h2>Сколько стоит ваш дом</h2>
       <div class="calc-sum" aria-live="polite">
-        <div class="calc-total" id="calcTotal">Rp —</div>
-        <div class="calc-sub"><span id="calcUsd"></span> · <span id="calcWeeks"></span></div>
+        <div class="calc-total" id="calcTotal" data-calc-out="total">Rp —</div>
+        <div class="calc-sub"><span data-calc-out="usd"></span> · <span data-calc-out="weeks"></span></div>
       </div>
       <p class="calc-flag">Оценка. Цифры уточняем на нашей стройке.</p>
 

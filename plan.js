@@ -3,13 +3,15 @@
 (function(){
 var screen = document.getElementById("layouts");
 if(!screen || !window.CalcApp) return;
-var C = CalcApp, F = C.fmt, NB = " ";
+var C = CalcApp, F = C.fmt, NB = "\u00a0";
 var HOUSE = {w: 4, l: 7}; // чертежи нарисованы для 7 × 4 м
 
 // Что на чертеже каждого варианта (размеры в чистоте — см. drawings/plan*.svg)
 var VARIANTS = {
-  bedroom: {dwg: "plan",        bed: "Отдельная, 2,5" + NB + "×" + NB + "3,8" + NB + "м"},
-  studio:  {dwg: "plan-studio", bed: "Кровать в общей комнате 22" + NB + "м²"}
+  bedroom: {dwg: "plan",        bed: "Отдельная, 2,5" + NB + "×" + NB + "3,8" + NB + "м",
+            bath: "У фасада, 1,4" + NB + "×" + NB + "2,0" + NB + "м"},
+  studio:  {dwg: "plan-studio", bed: "Зона в общей комнате 22,8" + NB + "м²",
+            bath: "В заднем углу, 1,4" + NB + "×" + NB + "1,6" + NB + "м"}
 };
 
 var dwgBtn = document.getElementById("planDwg"), dwgHost = dwgBtn.querySelector(".dwg-host"), shown = "";
@@ -26,7 +28,7 @@ function draw(){
     ["Размер", F.dec(HOUSE.l) + NB + "×" + NB + F.dec(HOUSE.w) + NB + "м"],
     ["Площадь", F.dec(r.area) + NB + "м²"],
     ["Спальня", v.bed],
-    ["Душ и туалет", "Санузел 1,4" + NB + "×" + NB + "2,0" + NB + "м"],
+    ["Душ и туалет", v.bath],
     ["Фундамент", "Винтовые сваи, 22" + NB + "шт."]
   ];
   document.getElementById("planSpecs").innerHTML = rows.map(function(x){ return "<div><dt>" + x[0] + "</dt><dd>" + x[1] + "</dd></div>"; }).join("");

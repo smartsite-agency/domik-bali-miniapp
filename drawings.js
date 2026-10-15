@@ -1,5 +1,6 @@
 // Чертежи из drawings/: SVG вставляем прямо в страницу, чтобы они брали цвета темы (style.css, .dwg-host).
 // Если загрузить не вышло (страница открыта как файл, без сервера) — показываем через <img>, цвета тогда по теме системы.
+// [data-img="путь"] открывает на весь экран обычную картинку (фото), [data-dwg="id"] — чертёж.
 // Viewer.put(el, id) — вставить чертёж в элемент (план на экране «Дом» меняется по планировке).
 // Полноэкранный просмотр: крестик, Esc, свайп вниз, кнопка «Назад» в Telegram; зум пальцами, колесом и двойным тапом.
 (function(){
@@ -45,11 +46,13 @@ function zoomAt(ns, px, py){
   clamp();
 }
 
-function show(id, from){
+// img — путь к обычной картинке (фото): тогда показываем её, а не чертёж
+function show(id, from, img, title){
   opener = from || null;
-  document.getElementById("viewerTitle").textContent = (TITLES[id] || "Чертёж") + " · 7 × 4 м";
+  document.getElementById("viewerTitle").textContent = img ? (title || "Фото") : (TITLES[id] || "Чертёж") + " · 7 × 4 м";
   canvas.innerHTML = "";
-  put(canvas, id);
+  if(img){ var im = new Image(); im.src = img; im.alt = title || ""; canvas.appendChild(im); }
+  else put(canvas, id);
   s = 1; tx = 0; ty = 0; drag = 0; apply(false);
   open = true;
   viewer.setAttribute("aria-hidden", "false"); viewer.classList.add("open");
@@ -67,8 +70,8 @@ function hide(){
 }
 
 document.addEventListener("click", function(e){
-  var b = e.target.closest("[data-dwg]");
-  if(b && !viewer.contains(b)) show(b.dataset.dwg, b);
+  var b = e.target.closest("[data-dwg],[data-img]");
+  if(b && !viewer.contains(b)) b.dataset.img ? show("", b, b.dataset.img, b.dataset.title) : show(b.dataset.dwg, b);
 });
 closeBtn.addEventListener("click", hide);
 document.addEventListener("keydown", function(e){ if(open && e.key === "Escape") hide(); });

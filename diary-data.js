@@ -25,12 +25,16 @@
 //      fact: { cost: 12000000, days: 3, start: "2026-10-29", end: "2026-10-31" },
 //   cost — сколько всего потратили на этап, days — сколько дней шёл этап.
 //
+// cover — запасная картинка этапа (img/… или drawings/….svg). Если в записях этапа есть фото, в превью встаёт
+//   последнее фото последней записи, а cover не используется. Замените cover на реальное фото, когда оно появится.
+//
 // about — что происходит на этапе, tips — подсказки (взяты из прежних записей-примеров), risk — одна фраза.
 
 var STAGES = [
   {
     n: 1, name: "Участок", status: "next",
     plan: CalcApp.stagePlan(1),
+    cover: "drawings/plan.svg",
     fact: null,
     about: "Документы на землю, разметка дома на участке и расчистка площадки под сваи.",
     tips: [
@@ -44,6 +48,7 @@ var STAGES = [
   {
     n: 2, name: "Сваи", status: "next",
     plan: CalcApp.stagePlan(2),
+    cover: "drawings/piles.svg",
     fact: null,
     about: "22 винтовые сваи: 15 под дом, 5 под террасу и 2 под ступени — по схеме drawings/piles.svg.",
     tips: [
@@ -56,6 +61,7 @@ var STAGES = [
   {
     n: 3, name: "Каркас", status: "next",
     plan: CalcApp.stagePlan(3),
+    cover: "drawings/frame.svg",
     fact: null,
     about: "Металлический каркас: рама пола на сваях, стойки, верхняя обвязка под стропила — по схеме drawings/frame.svg.",
     tips: [
@@ -68,6 +74,7 @@ var STAGES = [
   {
     n: 4, name: "Стены и обшивка", status: "next",
     plan: CalcApp.stagePlan(4),
+    cover: "img/fasten.jpg",
     fact: null,
     about: "Деревянная обшивка по металлу, утеплитель, перегородки спальни и межкомнатная дверь.",
     tips: [],
@@ -77,6 +84,7 @@ var STAGES = [
   {
     n: 5, name: "Кровля", status: "next",
     plan: CalcApp.stagePlan(5),
+    cover: "drawings/facade-end.svg",
     fact: null,
     about: "Вальмовая крыша 30°: стропила, обрешётка, черепица, свес 1,2 м над террасой.",
     tips: [],
@@ -86,6 +94,7 @@ var STAGES = [
   {
     n: 6, name: "Окна и двери", status: "next",
     plan: CalcApp.stagePlan(6),
+    cover: "drawings/facade-front.svg",
     fact: null,
     about: "Раздвижные окна от пола до потолка в гостиной и спальне, окна задней стены, входная группа.",
     tips: [],
@@ -95,6 +104,7 @@ var STAGES = [
   {
     n: 7, name: "Инженерия", status: "next",
     plan: CalcApp.stagePlan(7),
+    cover: "drawings/section.svg",
     fact: null,
     about: "Электрика, вода и канализация, санузел с душем, подключение кухни.",
     tips: [],
@@ -104,6 +114,7 @@ var STAGES = [
   {
     n: 8, name: "Отделка и терраса", status: "next",
     plan: CalcApp.stagePlan(8),
+    cover: "img/house-7x4.webp",
     fact: null,
     about: "Внутренняя отделка, кухня, терраса 7 × 1,2 м и три ступени.",
     tips: [],

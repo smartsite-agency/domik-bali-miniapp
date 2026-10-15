@@ -47,10 +47,11 @@ function spentOf(st){
   if(st.status === "done" && st.fact) return Number(st.fact.cost) || 0;
   return (st.entries || []).reduce(function(t, e){ return t + (Number(e.spent) || 0); }, 0);
 }
-function photosOf(st){
-  var out = [];
-  (st.entries || []).forEach(function(e){ (e.photos || []).forEach(function(p){ out.push(p); }); });
-  return out;
+// Превью этапа: последнее фото последней записи с фото, иначе запасная картинка cover
+function coverOf(st){
+  var es = (st.entries || []).slice().sort(function(a, b){ return b.day - a.day; });
+  for(var i = 0; i < es.length; i++){ var ph = es[i].photos || []; if(ph.length) return ph[ph.length - 1]; }
+  return st.cover || "";
 }
 function currentStage(){
   for(var i = 0; i < TOTAL; i++) if(STAGES[i].status === "now") return STAGES[i];
@@ -73,7 +74,8 @@ function factLine(st){
   if(st.status !== "done" || !st.fact) return "";
   return '<span class="stage-line">Факт: ' + money(st.fact.cost) + " · " + st.fact.days + NB + dayWord(st.fact.days) + " " + delta(st) + '</span>';
 }
-function planLine(st){ return "План: ≈" + NB + moneyRange(st.plan.cost) + " · ≈" + NB + daysRange(st.plan.days); }
+function nw(s){ return '<span class="nw">' + s + '</span>'; } // диапазон «5–10 дней» не рвётся на тире
+function planLine(st){ return "План: " + nw("≈" + NB + moneyRange(st.plan.cost)) + " · " + nw("≈" + NB + daysRange(st.plan.days)); }
 
 // ---------- Экран «Сроки» ----------
 var steps = document.getElementById("stepsList");
@@ -82,7 +84,7 @@ if(steps){
   document.getElementById("stepsDay").innerHTML = "День" + NB + Math.max(0, ld) +
     "<small>" + (ld < 0 ? "Счётчик запустим в день разметки участка." : "Этап " + cur.n + " из " + TOTAL + ": " + esc(cur.name)) + "</small>";
   steps.innerHTML = STAGES.map(function(st){
-    return '<li class="is-' + st.status + '"><span>' + esc(st.name) + '</span><em>≈' + NB + daysRange(st.plan.days) + " · " +
+    return '<li class="is-' + st.status + '"><span>' + esc(st.name) + '</span><em>' + nw("≈" + NB + daysRange(st.plan.days)) + " · " +
       STATUS[st.status].toLowerCase() + '</em></li>';
   }).join("");
 }
@@ -98,16 +100,16 @@ document.getElementById("diarySum").innerHTML = "<b>Этап" + NB + currentStag
 
 var feed = document.getElementById("diaryFeed");
 feed.innerHTML = STAGES.slice().sort(function(a, b){ return a.n - b.n; }).map(function(st){
-  var ph = photosOf(st).slice(0, 3);
+  var cv = coverOf(st);
   return '<li><button type="button" class="stage-card is-' + st.status + '" data-n="' + st.n + '">' +
-    '<span class="stage-head"><span class="stage-title"><span class="stage-n">Этап' + NB + st.n + '</span>' +
+    (cv ? media(cv, "stage-thumb", "") : '<span class="stage-thumb"></span>') +
+    '<span class="stage-body"><span class="stage-head"><span class="stage-title"><span class="stage-n">Этап' + NB + st.n + '</span>' +
       '<b class="stage-name">' + esc(st.name) + '</b></span>' +
       '<span class="stage-status is-' + st.status + '">' + STATUS[st.status] + '</span></span>' +
     '<span class="stage-line">' + planLine(st) + '</span>' +
     factLine(st) +
     '<span class="stage-risk">Риск: ' + keep(st.risk) + '</span>' +
-    (ph.length ? '<span class="stage-thumbs">' + ph.map(function(p){ return media(p, "stage-thumb", ""); }).join("") + '</span>' : "") +
-  '</button></li>';
+  '</span></button></li>';
 }).join("");
 window.addEventListener("DOMContentLoaded", function(){ hydrate(feed); }); // drawings.js подключён после этого файла
 
@@ -130,14 +132,18 @@ function entryHtml(e){
 }
 function detail(st){
   var entries = (st.entries || []).slice().sort(function(a, b){ return b.day - a.day; });
-  var f = st.status === "done" && st.fact;
-  return '<span class="stage-status is-' + st.status + '">' + STATUS[st.status] + '</span>' +
-    '<div class="diary-meta">Этап' + NB + st.n + " из " + TOTAL + '</div>' +
+  var f = st.status === "done" && st.fact, cv = coverOf(st), dw = DWG.exec(cv);
+  // Картинка этапа крупно; по нажатию — на весь экран (drawings.js: data-dwg — чертёж, data-img — фото)
+  var hero = cv ? '<button type="button" class="stage-hero" ' + (dw ? 'data-dwg="' + dw[1] + '"' : 'data-img="' + esc(cv) + '" data-title="' + esc(st.name) + '"') +
+    ' aria-label="Открыть картинку этапа на весь экран">' + media(cv, "stage-hero-media", st.name) + '</button>' : "";
+  return hero +
+    '<div class="stage-sub"><span class="diary-meta">Этап' + NB + st.n + " из " + TOTAL + '</span>' +
+      '<span class="stage-status is-' + st.status + '">' + STATUS[st.status] + '</span></div>' +
     '<h3 class="diary-h" id="diaryTitle">' + esc(st.name) + '</h3>' +
     '<p>' + keep(st.about) + '</p>' +
     '<dl class="stage-facts">' +
       '<div><dt>Кто делает</dt><dd>' + esc(st.plan.who) + '</dd></div>' +
-      '<div><dt>План</dt><dd>≈' + NB + moneyRange(st.plan.cost) + " · ≈" + NB + daysRange(st.plan.days) + '</dd></div>' +
+      '<div><dt>План</dt><dd>' + nw("≈" + NB + moneyRange(st.plan.cost)) + " · " + nw("≈" + NB + daysRange(st.plan.days)) + '</dd></div>' +
       (f ? '<div><dt>Факт</dt><dd>' + money(st.fact.cost) + " · " + st.fact.days + NB + dayWord(st.fact.days) +
            (st.fact.start ? " · " + date(st.fact.start) + "–" + date(st.fact.end) : "") + " " + delta(st) + '</dd></div>' : "") +
       '<div><dt>Риск</dt><dd>' + keep(st.risk) + '</dd></div>' +
@@ -181,7 +187,9 @@ feed.addEventListener("click", function(ev){
   var b = ev.target.closest(".stage-card"); if(b) show(Number(b.dataset.n), b);
 });
 backdrop.addEventListener("click", hide);
-document.addEventListener("keydown", function(ev){ if(open && ev.key === "Escape") hide(); });
+document.addEventListener("keydown", function(ev){
+  if(open && ev.key === "Escape" && !(window.Viewer && Viewer.isOpen())) hide(); // сначала закрывается картинка на весь экран
+});
 
 // Свайп вниз закрывает панель; горизонтальный свайп листает галерею и панель не двигает
 var sx = null, sy = 0, mode = "";

@@ -180,9 +180,15 @@
       <div class="eyebrow">Другая модель</div>
       <h2>Плоская крыша и веранда</h2>
       <p class="lead">Тёмный фасад, терраса по всей длине. Пока концепт, строим 7&nbsp;×&nbsp;4.</p>
+      <div class="calc-sum calc-sum-static" id="flatSum" aria-live="polite">
+        <div class="calc-total" data-flat-out="total">Rp —</div>
+        <div class="calc-sub"><span data-flat-out="usd"></span> · <span data-flat-out="weeks"></span></div>
+        <p class="calc-note">Модель-концепт. Цифры примерные.</p>
+        <button type="button" class="link-btn calc-more" data-go="layouts">Сравнить с нашим домом →</button>
+      </div>
       <div class="seg" role="group" aria-label="Фасад">
-        <button type="button" id="facade-closed" aria-pressed="true" data-src="r1">Закрытый фасад</button>
-        <button type="button" id="facade-glass" aria-pressed="false" data-src="r2">Стеклянный фасад</button>
+        <button type="button" id="facade-closed" aria-pressed="true" data-src="r1" data-facade="closed">Закрытый фасад</button>
+        <button type="button" id="facade-glass" aria-pressed="false" data-src="r2" data-facade="glass">Стеклянный фасад</button>
       </div>
       <figure><img id="altImg" src="img/r1.jpg" alt="Дом с плоской крышей и верандой в джунглях"><span class="badge">Концепт</span></figure>
     </section>

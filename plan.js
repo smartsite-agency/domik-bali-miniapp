@@ -34,12 +34,6 @@ function draw(){
   document.getElementById("planSpecs").innerHTML = rows.map(function(x){ return "<div><dt>" + x[0] + "</dt><dd>" + x[1] + "</dd></div>"; }).join("");
 }
 
-// «Посчитать точнее →» — на экран калькулятора; планировка там та же (общий CalcApp.state)
-screen.addEventListener("click", function(e){
-  var b = e.target.closest("[data-go]"), target = b && document.getElementById(b.dataset.go);
-  if(target && window.go) go(Array.prototype.indexOf.call(document.querySelectorAll(".screen"), target));
-});
-
 C.bind(screen);
 C.onRender(draw);
 })();

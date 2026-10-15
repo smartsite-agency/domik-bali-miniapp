@@ -102,6 +102,11 @@ function next(){
 }
 
 cta.addEventListener("click", next);
+// Ссылки-переходы: data-go="id экрана" («Посчитать точнее →», «Сравнить с нашим домом →»)
+document.addEventListener("click", function(e){
+  var b = e.target.closest("[data-go]"), target = b && document.getElementById(b.dataset.go);
+  if(target) go(screens.indexOf(target));
+});
 back.addEventListener("click", function(){ go(current-1); });
 home.addEventListener("click", function(){ go(0); });
 tocBtn.addEventListener("click", openToc);
@@ -126,8 +131,16 @@ document.querySelector('.seg[aria-label="Фасад"]').addEventListener("click"
   var b = e.target.closest("button"); if(!b) return;
   Array.prototype.forEach.call(this.querySelectorAll("button"),function(o){ o.setAttribute("aria-pressed", o===b ? "true" : "false"); });
   document.getElementById("altImg").src = IMG[b.dataset.src];
+  flatSum(b.dataset.facade);
   haptic();
 });
+// Цена модели «Плоская крыша» для выбранного фасада — та же смета калькулятора (CalcApp.flatPrice)
+function flatSum(facade){
+  if(!window.CalcApp) return;
+  var t = CalcApp.sumText(CalcApp.flatPrice(facade));
+  Array.prototype.forEach.call(document.querySelectorAll("[data-flat-out]"), function(el){ el.textContent = t[el.dataset.flatOut]; });
+}
+flatSum("closed");
 
 // Свайп между экранами
 var sx=null, sy=null;

@@ -107,6 +107,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 
 /* Layout scheme on screen 3 — SVG in centimetres, colours from tokens */
 .calc-sum-static{position:static;margin-top:-4px}  /* тот же блок суммы на экране «Дом», без прилипания */
+.calc-note{margin:4px 0 0;font-size:13px;color:var(--muted)}
 .link-btn.calc-more{display:inline-block;margin-top:6px;font-size:13px}
 
 /* Calculator: sticky total on top, controls, breakdown */

@@ -106,22 +106,7 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 .note{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
 
 /* Layout scheme on screen 3 — SVG in centimetres, colours from tokens */
-.plan svg{display:block;width:100%;height:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px}
-.plan-floor{fill:var(--surface)}
-.plan-wall{fill:none;stroke:var(--fg);stroke-width:12}
-.plan-wall-in{stroke:var(--fg);stroke-width:8}
-.plan-gap{stroke:var(--surface);stroke-width:16}
-.plan-thin{fill:none;stroke:var(--muted);stroke-width:2.5}
-.plan-fixture{fill:var(--line);stroke:var(--muted);stroke-width:2}
-.plan-bed{fill:none;stroke:var(--muted);stroke-width:3;stroke-dasharray:10 8}
-.plan-loft{fill:var(--tile);fill-opacity:.1;stroke:var(--tile);stroke-width:4;stroke-dasharray:14 10}
-.plan-label{fill:var(--fg);font-family:var(--body);font-weight:600;text-anchor:middle;dominant-baseline:central;
-  paint-order:stroke;stroke:var(--surface);stroke-width:8;stroke-linejoin:round}
-.plan-accent{fill:var(--tile)}
-.plan-dim{stroke:var(--muted);stroke-width:2}
-.plan-dimtext{fill:var(--muted);font-family:var(--body);text-anchor:middle;font-variant-numeric:tabular-nums}
 .plan-price{font-family:var(--display);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
-.seg-tight button{padding:8px 2px;font-size:13px;white-space:nowrap}
 
 /* Calculator: sticky total on top, controls, breakdown */
 .calc h3{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.2;margin:0 0 6px}

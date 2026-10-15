@@ -47,18 +47,16 @@
       </ol>
     </section>
 
-    <section class="screen" id="layouts" data-cta="Как он устроен" data-label="Дом" data-desc="3 планировки, схема в масштабе">
+    <section class="screen" id="layouts" data-cta="Как он устроен" data-label="Дом" data-desc="2 планировки, чертежи 7 × 4 м">
       <div class="eyebrow">Планировка</div>
       <h2>Какой дом получится</h2>
-      <div class="seg seg-tight noswipe" role="group" aria-label="Планировка">
-        <button type="button" data-set="layout" data-val="studio">Студия</button>
+      <div class="seg noswipe" role="group" aria-label="Планировка">
         <button type="button" data-set="layout" data-val="bedroom">Со спальней</button>
-        <button type="button" data-set="layout" data-val="loft">С антресолью</button>
+        <button type="button" data-set="layout" data-val="studio">Студия</button>
       </div>
-      <figure class="plan"><div id="planSvg"></div><figcaption>Схема</figcaption></figure>
+      <button type="button" class="dwg-main" id="planDwg" data-dwg="plan" aria-label="План этажа 7 × 4 м — открыть на весь экран"><span class="dwg-host" data-dwg-src="plan"></span></button>
       <dl class="specs" id="planSpecs"></dl>
       <p class="plan-price" id="planPrice"></p>
-      <button type="button" class="dwg-main" data-dwg="plan" aria-label="План этажа 7 × 4 м — открыть на весь экран"><span class="dwg-host" data-dwg-src="plan"></span></button>
       <div class="dwg-thumbs noswipe">
         <button type="button" class="dwg-thumb" data-dwg="facade-front"><span class="dwg-host" data-dwg-src="facade-front"></span><span>Фасад</span></button>
         <button type="button" class="dwg-thumb" data-dwg="facade-end"><span class="dwg-host" data-dwg-src="facade-end"></span><span>Торец</span></button>
@@ -94,10 +92,9 @@
       <div class="calc-controls noswipe">
         <div class="ctl">
           <div class="ctl-head">Планировка</div>
-          <div class="seg seg-tight noswipe" role="group" aria-label="Планировка">
-            <button type="button" data-set="layout" data-val="studio">Студия</button>
+          <div class="seg noswipe" role="group" aria-label="Планировка">
             <button type="button" data-set="layout" data-val="bedroom">Со спальней</button>
-            <button type="button" data-set="layout" data-val="loft">С антресолью</button>
+            <button type="button" data-set="layout" data-val="studio">Студия</button>
           </div>
           <div class="ctl-hint" id="c-layoutHint"></div>
         </div>
@@ -227,8 +224,8 @@
 </div>
 <script src="calc-data.js"></script>
 <script src="calc.js"></script>
-<script src="plan.js"></script>
 <script src="drawings.js"></script>
+<script src="plan.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

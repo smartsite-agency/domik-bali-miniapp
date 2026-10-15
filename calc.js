@@ -53,7 +53,7 @@ function crew(s, area, roof){
   return list;
 }
 
-// over — необязательная подмена выбора, например {layout: "loft"}
+// over — необязательная подмена выбора, например {layout: "studio"}
 function compute(over){
   var s = {}, k;
   for(k in state) s[k] = state[k];

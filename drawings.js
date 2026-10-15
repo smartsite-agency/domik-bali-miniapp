@@ -1,8 +1,9 @@
 // Чертежи из drawings/: SVG вставляем прямо в страницу, чтобы они брали цвета темы (style.css, .dwg-host).
 // Если загрузить не вышло (страница открыта как файл, без сервера) — показываем через <img>, цвета тогда по теме системы.
+// Viewer.put(el, id) — вставить чертёж в элемент (план на экране «Дом» меняется по планировке).
 // Полноэкранный просмотр: крестик, Esc, свайп вниз, кнопка «Назад» в Telegram; зум пальцами, колесом и двойным тапом.
 (function(){
-var TITLES = {"plan":"План этажа", "facade-front":"Фасад", "facade-end":"Торец", "section":"Разрез А–А", "piles":"Свайное поле", "frame":"Металлокаркас"};
+var TITLES = {"plan":"План · со спальней", "plan-studio":"План · студия", "facade-front":"Фасад", "facade-end":"Торец", "section":"Разрез А–А", "piles":"Свайное поле", "frame":"Металлокаркас"};
 var cache = {};
 
 function load(id){
@@ -120,5 +121,5 @@ stage.addEventListener("wheel", function(e){
   zoomAt(s * Math.exp(-e.deltaY*0.002), e.clientX, e.clientY); apply(false);
 }, {passive: false});
 
-window.Viewer = {open: show, close: hide, isOpen: function(){ return open; }};
+window.Viewer = {open: show, close: hide, isOpen: function(){ return open; }, put: put};
 })();

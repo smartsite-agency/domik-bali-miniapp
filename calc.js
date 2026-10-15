@@ -37,17 +37,17 @@ function roofArea(s){
 
 function crew(s, area, roof){
   var c = D.crew, t = s.terrace, list = [];
-  function add(item, a, b){
+  function add(key, a, b){
     a = Math.max(1, Math.round(a)); b = Math.max(a, Math.round(b));
-    list.push({label: item.label, dMin: a, dMax: b, min: a*D.dayRate.min, max: b*D.dayRate.max});
+    list.push({key: key, label: c[key].label, dMin: a, dMax: b, min: a*D.dayRate.min, max: b*D.dayRate.max});
   }
-  add(c.welder, area*c.welder.perHouseM2[0], area*c.welder.perHouseM2[1]);
-  add(c.carpenter, area*c.carpenter.perHouseM2[0] + t*c.carpenter.perTerraceM2[0],
+  add("welder", area*c.welder.perHouseM2[0], area*c.welder.perHouseM2[1]);
+  add("carpenter", area*c.carpenter.perHouseM2[0] + t*c.carpenter.perTerraceM2[0],
                    area*c.carpenter.perHouseM2[1] + t*c.carpenter.perTerraceM2[1]);
-  add(c.roofer, roof*c.roofer.perRoofM2[0], roof*c.roofer.perRoofM2[1]);
-  add(c.electrician, c.electrician.fixed[0], c.electrician.fixed[1]);
+  add("roofer", roof*c.roofer.perRoofM2[0], roof*c.roofer.perRoofM2[1]);
+  add("electrician", c.electrician.fixed[0], c.electrician.fixed[1]);
   if(s.bath || s.kitchen){
-    add(c.plumber, (s.bath ? c.plumber.bath[0] : 0) + (s.kitchen ? c.plumber.kitchen[0] : 0),
+    add("plumber", (s.bath ? c.plumber.bath[0] : 0) + (s.kitchen ? c.plumber.kitchen[0] : 0),
                    (s.bath ? c.plumber.bath[1] : 0) + (s.kitchen ? c.plumber.kitchen[1] : 0));
   }
   return list;
@@ -59,29 +59,30 @@ function compute(over){
   for(k in state) s[k] = state[k];
   for(k in over || {}) s[k] = over[k];
   var area = s.w*s.l, roof = roofArea(s), lines = [], lay = D.layouts[s.layout];
-  function perM2(item, m2, label){ lines.push({label: label || item.label, min: item.min*m2, max: item.max*m2}); }
-  function fixed(item, label){ lines.push({label: label || item.label, min: item.min, max: item.max}); }
+  // key — по нему этапы дневника (CALC_DATA.stages) собирают свои строки сметы
+  function perM2(key, item, m2, label){ lines.push({key: key, label: label || item.label, min: item.min*m2, max: item.max*m2}); }
+  function fixed(key, item, label){ lines.push({key: key, label: label || item.label, min: item.min, max: item.max}); }
 
-  perM2(D.foundation, area);
-  perM2(D.frame, area);
-  perM2(D.floor, area);
-  perM2(D.walls, area);
-  if(lay.extra) fixed(lay.extra);
-  perM2(D.roof[s.roof], roof, "Кровля: " + D.roof[s.roof].full.toLowerCase());
-  fixed(D.windows[s.finish], "Окна и двери");
-  fixed(D.electric);
-  if(s.bath) fixed(D.bath);
-  if(s.kitchen) fixed(D.kitchen);
-  perM2(D.finish[s.finish], area, "Отделка: " + D.finish[s.finish].label.toLowerCase());
-  if(s.terrace) perM2(D.terraceM2, s.terrace, "Терраса " + s.terrace + NB + "м²");
+  perM2("foundation", D.foundation, area);
+  perM2("frame", D.frame, area);
+  perM2("floor", D.floor, area);
+  perM2("walls", D.walls, area);
+  if(lay.extra) fixed("layout", lay.extra);
+  perM2("roof", D.roof[s.roof], roof, "Кровля: " + D.roof[s.roof].full.toLowerCase());
+  fixed("windows", D.windows[s.finish], "Окна и двери");
+  fixed("electric", D.electric);
+  if(s.bath) fixed("bath", D.bath);
+  if(s.kitchen) fixed("kitchen", D.kitchen);
+  perM2("finish", D.finish[s.finish], area, "Отделка: " + D.finish[s.finish].label.toLowerCase());
+  if(s.terrace) perM2("terrace", D.terraceM2, s.terrace, "Терраса " + s.terrace + NB + "м²");
 
   var team = crew(s, area, roof), work;
   if(s.builder === "self"){
-    work = {label: "Работа: специалисты", min: 0, max: 0};
+    work = {key: "work", label: "Работа: специалисты", min: 0, max: 0};
     team.forEach(function(p){ work.min += p.min; work.max += p.max; });
   } else {
     var mul = s.builder === "turnkey" ? 1 + D.turnkeyMarkup : 1, m2 = area + s.terrace;
-    work = {label: s.builder === "turnkey" ? "Работа: подрядчик под ключ" : "Работа: бригада",
+    work = {key: "work", label: s.builder === "turnkey" ? "Работа: подрядчик под ключ" : "Работа: бригада",
             min: D.brigadeM2.min*m2*mul, max: D.brigadeM2.max*m2*mul};
   }
   lines.push(work);
@@ -160,8 +161,24 @@ function onClick(e){
 root.addEventListener("click", onClick);
 
 // Для других экранов (план на экране 3): общий выбор, тот же расчёт
+// План этапа дневника (n — номер с 1): строки сметы и специалисты этапа из CALC_DATA.stages,
+// дом — CALC_DATA.stageHouse. Специалисты считаются как при «Сам». Дни — дни специалистов этапа,
+// если их нет — stage.days. Возвращает {cost: [min, max], days: [min, max], who}.
+function stagePlan(n){
+  var st = D.stages[n - 1]; if(!st) return null;
+  var r = compute(D.stageHouse), cost = [0, 0], days = [0, 0];
+  r.lines.forEach(function(x){ if(st.lines.indexOf(x.key) >= 0){ cost[0] += x.min; cost[1] += x.max; } });
+  r.team.forEach(function(p){
+    if(st.crew.indexOf(p.key) < 0) return;
+    cost[0] += p.min; cost[1] += p.max; days[0] += p.dMin; days[1] += p.dMax;
+  });
+  if(st.extra){ cost[0] += D[st.extra].min; cost[1] += D[st.extra].max; }
+  if(!st.crew.length) days = st.days.slice();
+  return {cost: cost, days: days, who: st.who};
+}
+
 window.CalcApp = {
-  state: state, compute: compute, fmt: {mln: mln, range: range, rangeMln: rangeMln, dec: dec},
+  state: state, compute: compute, stagePlan: stagePlan, fmt: {mln: mln, range: range, rangeMln: rangeMln, dec: dec},
   bind: function(el){ el.addEventListener("click", onClick); },
   onRender: function(fn){ listeners.push(fn); fn(compute()); }
 };

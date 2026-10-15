@@ -181,8 +181,8 @@ figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 /* Чертежи 7 × 4 (drawings/, drawings.js): SVG берут цвета из токенов приложения */
 .dwg-host svg.dwg{--d-ink:var(--fg);--d-muted:var(--muted);--d-line:var(--line);--d-paper:var(--surface);--d-accent:var(--tile);--d-soft:var(--leaf)}
 .dwg-host svg,.dwg-host img{display:block;width:100%;height:auto}
-.dwg-main{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);cursor:zoom-in}
-.dwg-thumbs{display:flex;gap:8px;overflow-x:auto;margin:-6px -16px 0;padding:0 16px 4px;scroll-snap-type:x proximity;scroll-padding-inline:16px;scrollbar-width:none}
+.dwg-main{display:block;flex:none;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);cursor:zoom-in}
+.dwg-thumbs{display:flex;flex:none;gap:8px;overflow-x:auto;margin:-6px -16px 0;padding:0 16px 4px;scroll-snap-type:x proximity;scroll-padding-inline:16px;scrollbar-width:none}
 .dwg-thumbs::-webkit-scrollbar{display:none}
 .dwg-thumb{flex:none;width:104px;display:flex;flex-direction:column;gap:4px;padding:0;border:0;background:none;color:var(--fg);
   font:400 13px var(--body);text-align:left;cursor:pointer;scroll-snap-align:start}

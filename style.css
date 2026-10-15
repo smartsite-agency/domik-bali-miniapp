@@ -267,3 +267,28 @@ img.stage-hero-media{aspect-ratio:3/2;object-fit:cover}
 .steps li.is-now::before{background:var(--tile);border-color:var(--tile);color:var(--tile-ink)}
 .steps li.is-now span{font-weight:600}
 .nw{white-space:nowrap}
+
+/* Экран «Конструкция»: дом по слоям (layers.js, drawings/layers.svg) */
+.layers-host{display:block;flex:none;margin:0 -6px;border-radius:14px;overflow:hidden}
+.layers-host .ly{cursor:pointer}
+.layers-host .ly-in{transition:transform .25s ease,opacity .25s ease}
+.layers-host[data-sel] .ly:not(.on) .ly-in{opacity:.28}
+.layers-host .ly.on .ly-in{transform:translateY(-60px)}                     /* выбранный слой чуть приподнят */
+.layers-host .ly.on{--d-ink:var(--d-accent);--d-line:var(--d-soft)}         /* и подсвечен акцентом */
+@media (prefers-reduced-motion:reduce){.layers-host .ly-in{transition:none}}
+.layer-chips{display:flex;flex:none;gap:8px;overflow-x:auto;margin:-4px -16px 0;padding:0 16px 2px;scroll-padding-inline:16px;scrollbar-width:none}
+.layer-chips::-webkit-scrollbar{display:none}
+.layer-chip{flex:none;display:flex;align-items:center;gap:7px;padding:6px 12px 6px 6px;border:1px solid var(--line);border-radius:999px;
+  background:var(--surface);color:var(--fg);font:600 13px var(--body);white-space:nowrap;cursor:pointer}
+.layer-chip b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--bg);font:700 12px var(--display)}
+.layer-chip[aria-pressed="true"]{background:var(--tile);border-color:var(--tile);color:var(--tile-ink)}
+.layer-chip[aria-pressed="true"] b{background:var(--tile-ink);color:var(--tile)}
+.layer-chip:focus-visible{outline:2px solid var(--tile);outline-offset:2px}
+.layer-card{flex:none;display:flex;flex-direction:column;gap:8px;padding:14px 16px;border-radius:12px;
+  background:var(--glass-solid);border:1px solid var(--glass-line);box-shadow:var(--glass-shadow)}
+.layer-card p{margin:0}
+.layer-card-head{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:18px;line-height:1.2}
+.layer-num{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--tile);color:var(--tile-ink);font:700 14px var(--display)}
+.layer-why span{color:var(--muted)}
+.layer-cost{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-family:var(--display);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
+.layer-share{padding:1px 8px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--tile);font:600 13px var(--body)}

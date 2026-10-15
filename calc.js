@@ -161,24 +161,34 @@ function onClick(e){
 root.addEventListener("click", onClick);
 
 // Для других экранов (план на экране 3): общий выбор, тот же расчёт
-// План этапа дневника (n — номер с 1): строки сметы и специалисты этапа из CALC_DATA.stages,
-// дом — CALC_DATA.stageHouse. Специалисты считаются как при «Сам». Дни — дни специалистов этапа,
-// если их нет — stage.days. Возвращает {cost: [min, max], days: [min, max], who}.
-function stagePlan(n){
-  var st = D.stages[n - 1]; if(!st) return null;
-  var r = compute(D.stageHouse), cost = [0, 0], days = [0, 0];
-  r.lines.forEach(function(x){ if(st.lines.indexOf(x.key) >= 0){ cost[0] += x.min; cost[1] += x.max; } });
-  r.team.forEach(function(p){
-    if(st.crew.indexOf(p.key) < 0) return;
-    cost[0] += p.min; cost[1] += p.max; days[0] += p.dMin; days[1] += p.dMax;
-  });
-  if(st.extra){ cost[0] += D[st.extra].min; cost[1] += D[st.extra].max; }
-  if(!st.crew.length) days = st.days.slice();
-  return {cost: cost, days: days, who: st.who};
+// План части стройки — этапа дневника (CALC_DATA.stages) или слоя дома (CALC_DATA.layers).
+// Дом — CALC_DATA.stageHouse, специалисты — как при «Сам». lines и crew — ключи строк сметы и специалистов,
+// "key" целиком или ["key", доля]. Дни — дни специалистов (× доля) плюс part.days. extra — статья только для дневника.
+// Возвращает {cost: [min, max], days: [min, max], who, share — доля от всей сметы калькулятора, 0–1}.
+function shareOf(list, key){
+  for(var i = 0; i < (list || []).length; i++){
+    var it = list[i];
+    if(typeof it === "string" ? it === key : it[0] === key) return typeof it === "string" ? 1 : it[1];
+  }
+  return 0;
 }
+function partPlan(part){
+  if(!part) return null;
+  var r = compute(D.stageHouse), cost = [0, 0], days = [0, 0];
+  r.lines.forEach(function(x){ var k = shareOf(part.lines, x.key); cost[0] += x.min*k; cost[1] += x.max*k; });
+  r.team.forEach(function(p){
+    var k = shareOf(part.crew, p.key); if(!k) return;
+    cost[0] += p.min*k; cost[1] += p.max*k; days[0] += Math.round(p.dMin*k); days[1] += Math.round(p.dMax*k);
+  });
+  if(part.extra){ cost[0] += D[part.extra].min; cost[1] += D[part.extra].max; }
+  if(part.days){ days[0] += part.days[0]; days[1] += part.days[1]; }
+  return {cost: cost, days: days, who: part.who, share: (cost[0] + cost[1])/(r.total.min + r.total.max)};
+}
+function stagePlan(n){ return partPlan(D.stages[n - 1]); }
+function layerPlan(n){ return partPlan(D.layers[n - 1]); }
 
 window.CalcApp = {
-  state: state, compute: compute, stagePlan: stagePlan, fmt: {mln: mln, range: range, rangeMln: rangeMln, dec: dec},
+  state: state, compute: compute, stagePlan: stagePlan, layerPlan: layerPlan, fmt: {mln: mln, range: range, rangeMln: rangeMln, dec: dec},
   bind: function(el){ el.addEventListener("click", onClick); },
   onRender: function(fn){ listeners.push(fn); fn(compute()); }
 };

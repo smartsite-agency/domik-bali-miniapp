@@ -66,18 +66,14 @@
       </div>
     </section>
 
-    <section class="screen" data-cta="Посчитать дом" data-label="Каркас" data-desc="Металл + дерево: 4 правила крепежа">
-      <div class="eyebrow">Технология</div>
-      <h2>Как он устроен</h2>
-      <p>Основа — металлический каркас. Дерево крепим к нему уголками, пластинами, саморезами и болтами.</p>
-      <figure><img src="img/fasten.jpg" alt="Схема крепления деревянных стоек и обшивки к металлическому каркасу"></figure>
-      <ul class="rules">
-        <li>Дерево не касается мокрого металла</li>
-        <li>Крепёж только оцинкованный</li>
-        <li>Между деревом и металлом — гидроизоляция</li>
-        <li>Где нужно, оставляем вентиляционный зазор</li>
-      </ul>
-      <p class="small">На схеме каркас 7 × 3 м. <button type="button" class="link-btn" data-dwg="frame">Открыть схему каркаса 7 × 4</button></p>
+    <section class="screen" id="layersScreen" data-cta="Посчитать дом" data-label="Конструкция" data-desc="6 слоёв от свай до черепицы">
+      <div class="eyebrow">Конструкция</div>
+      <h2>Из чего состоит дом</h2>
+      <p class="lead">Шесть слоёв — от свай до черепицы. Нажмите на слой.</p>
+      <div class="layers-host dwg-host noswipe" id="layersSvg"></div>
+      <div class="layer-chips noswipe" id="layerChips" role="group" aria-label="Слои дома"></div>
+      <div class="layer-card" id="layerCard" aria-live="polite"></div>
+      <p class="small"><button type="button" class="link-btn" data-dwg="frame">Открыть схему каркаса 7 × 4</button></p>
     </section>
 
     <section class="screen calc" id="calc" data-cta="Сколько ждать" data-label="Калькулятор" data-desc="Цена и срок под ваш размер">
@@ -231,6 +227,7 @@
 <script src="diary.js"></script>
 <script src="drawings.js"></script>
 <script src="plan.js"></script>
+<script src="layers.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

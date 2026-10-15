@@ -12,7 +12,7 @@ function load(id){
   return cache[id];
 }
 function put(el, id){
-  load(id).then(function(t){ el.innerHTML = t; })
+  return load(id).then(function(t){ el.innerHTML = t; })
     .catch(function(){ el.innerHTML = '<img src="drawings/' + id + '.svg" alt="">'; });
 }
 Array.prototype.forEach.call(document.querySelectorAll("[data-dwg-src]"), function(el){ put(el, el.dataset.dwgSrc); });

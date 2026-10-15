@@ -11,7 +11,7 @@ var meta = document.querySelector(".meta");
 var tocBtn = document.getElementById("tocBtn"), toc = document.getElementById("toc"), tocList = document.getElementById("tocList");
 var tocBackdrop = document.getElementById("tocBackdrop"), tocOpen = false;
 var tg = (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initData !== undefined && window.Telegram.WebApp.platform !== "unknown") ? window.Telegram.WebApp : null;
-var current = 0, goal = "";
+var current = 0;
 
 // Сегменты прогресса и пункты содержания — кнопки перехода на экран
 screens.forEach(function(s,i){
@@ -86,7 +86,6 @@ function go(i){
 }
 
 function next(){
-  if(current===1 && !goal){ document.getElementById("goal-live").focus(); }
   if(current < screens.length-1){ go(current+1); return; }
   if(CHANNEL_URL){
     tg && tg.openTelegramLink ? tg.openTelegramLink(CHANNEL_URL) : (location.href = CHANNEL_URL);
@@ -114,15 +113,6 @@ toc.addEventListener("touchend",function(e){
   var d = e.changedTouches[0].clientY-ty; ty=null;
   toc.style.transition = "";
   d>70 ? closeToc() : (toc.style.transform = "");
-});
-
-document.getElementById("goals").addEventListener("click", function(e){
-  var b = e.target.closest(".opt"); if(!b) return;
-  Array.prototype.forEach.call(this.querySelectorAll(".opt"),function(o){ o.setAttribute("aria-pressed", o===b ? "true" : "false"); });
-  goal = b.dataset.goal;
-  var notes = {"жить":"Вы строите для себя: начнём с планировки и бюджета.","сдавать":"Вы строите под аренду: добавим расходы на содержание.","приценяюсь":"Вы прицениваетесь: смету и сроки покажем первыми."};
-  document.getElementById("goalNote").textContent = notes[goal];
-  setTimeout(function(){ go(2); }, 220);
 });
 
 document.querySelector('.seg[aria-label="Фасад"]').addEventListener("click", function(e){

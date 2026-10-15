@@ -94,14 +94,14 @@ function svg(layout, s){
          '<text class="plan-dimtext" font-size="' + fs + '" transform="translate(' + (L - dy + fs*0.35) + ' ' + W/2 + ') rotate(90)">' + F.dec(s.w) + NB + 'м</text>');
 
   return {g: g, html: '<svg viewBox="' + (-pad) + ' ' + (-pad) + ' ' + (L + 2*pad) + ' ' + (W + 2*pad) + '" role="img" aria-label="Схема: ' +
-    CALC_DATA.layouts[layout].label.toLowerCase() + ', ' + F.dec(s.w) + ' × ' + F.dec(s.l) + ' м">' + o.join("") + '</svg>'};
+    CALC_DATA.layouts[layout].label.toLowerCase() + ', ' + F.dec(s.l) + ' × ' + F.dec(s.w) + ' м">' + o.join("") + '</svg>'};
 }
 
 function draw(r){
   var s = C.state, p = svg(s.layout, s), info = p.g.info, area = s.w*s.l;
   document.getElementById("planSvg").innerHTML = p.html;
   var rows = [
-    ["Размер", F.dec(s.w) + X + F.dec(s.l) + NB + "м"],
+    ["Размер", F.dec(s.l) + X + F.dec(s.w) + NB + "м"],
     ["Площадь", F.dec(area) + NB + "м²" + (info.loftArea ? " + антресоль " + F.dec(Math.round(info.loftArea*10)/10) + NB + "м²" : "")],
     ["Спальня", info.bed],
     ["Душ и туалет", "1 · " + m(info.bath[0]) + X + m(info.bath[1]) + NB + "м"],
